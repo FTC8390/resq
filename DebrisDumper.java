@@ -52,7 +52,4 @@ public class DebrisDumper {
 
   }
   
-  public void spit(){ //prevents balls from entering the whisk train
-    
-  }
 }
