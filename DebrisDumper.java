@@ -40,11 +40,19 @@ public class DebrisDumper {
     return position;
   }
 
-  public void dump() {
+  public void dumpleft() {
 
+  }
+  
+  public void dumpright(){
+    
   }
 
   public void collect() {
 
+  }
+  
+  public void spit(){ //prevents balls from entering the whisk train
+    
   }
 }
