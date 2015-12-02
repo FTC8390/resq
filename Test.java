@@ -19,6 +19,11 @@ public class Test extends OpMode {
     moosalot = new RobotResq();
     moosalot.init(hardwareMap);
   }
+  
+  @Override
+  public void start() {
+    moosalot.start();
+  }
 
   /*
    * This method will be called repeatedly in a loop
