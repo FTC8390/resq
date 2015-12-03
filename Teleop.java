@@ -56,29 +56,25 @@ public class Teleop extends OpMode {
       moosalot.dropHookAndRetractLift();  //scissor lift down
     }
 
-    if (gamepad1.a) {
-      moosalot.blueZipLineReleaser.extend();
-      
-    }
     moosalot.drivetrain.tankDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
       
     if(gamepad2.x){
-      moosalot.winch.up();
+      moosalot.winch.windUpMountain();
     }
     
     if (gamepad2.dpad_up){
-      moosalot.churroHook.up();
+      moosalot.churroHook.raise();
     }
     
     if (gamepad2.dpad_down){
-      moosalot.churroHook.down();
+      moosalot.churroHook.lower();
     }
     
     if (gamepad2.right_bumper){
-      moosalot.whiskTrain.forward();    //whisk train in
+      moosalot.whiskTrain.pullInDebris();    //whisk train in
     }
     
-    if (gamepad2.right_trigger){
-      moosalot.whiskTrain.backwards();
+    if (gamepad2.right_trigger > 0.75){
+      moosalot.whiskTrain.pushOutDebris();
   }
 }
