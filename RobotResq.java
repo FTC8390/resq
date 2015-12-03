@@ -66,5 +66,11 @@ public class RobotResq {
   public boolean tiltHookTowardMountain() {
     return false;
   }
+  
+  public boolean stopHook() {
+    poker.stop();
+    lift.stop();
+    return false;
+  }
 
 }
