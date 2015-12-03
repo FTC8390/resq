@@ -58,7 +58,7 @@ public class Teleop extends OpMode {
 
     moosalot.drivetrain.tankDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
       
-    if(gamepad2.x){
+    if(gamepad2.y){
       moosalot.winch.windUpMountain();
     }
     
