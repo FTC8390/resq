@@ -40,12 +40,8 @@ public class DebrisDumper {
     return position;
   }
 
-  public void dumpleft() {
+  public void dump() {
 
-  }
-  
-  public void dumpright(){
-    
   }
 
   public void collect() {
