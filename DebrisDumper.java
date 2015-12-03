@@ -34,10 +34,9 @@ public class DebrisDumper {
   public void start() {
   }
 
-  public double changePositionBy(double amount) {
+  public void changePositionBy(double amount) {
     position = Range.clip(position + amount, 0, 1);
     servo.setPosition(position);
-    return position;
   }
 
   public void dump() {
