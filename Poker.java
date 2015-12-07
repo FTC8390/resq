@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.Range;
  * Created on 11/30/2015.
  */
 public class Poker {
-  DcMotor motor;
+  public DcMotor motor;
 
   public void init(HardwareMap hwMap) {
     motor = hwMap.dcMotor.get("poker");

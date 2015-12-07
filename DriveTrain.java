@@ -9,7 +9,8 @@ import com.qualcomm.robotcore.util.Range;
  * Created on 11/30/2015.
  */
 public class DriveTrain {
-  DcMotor leftDrive, rightDrive;
+  public DcMotor leftDrive, rightDrive;
+
   boolean isFacingForward;
   double speed;
 

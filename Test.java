@@ -97,7 +97,6 @@ public class Test extends OpMode {
       moosalot.winch.stop();
     }
 
-
     telemetry.addData("D leftDrive", moosalot.driveTrain.leftDrive.getCurrentPosition());
     telemetry.addData("D rightDrive", moosalot.driveTrain.rightDrive.getCurrentPosition());
 

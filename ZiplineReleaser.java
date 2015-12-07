@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 public class ZiplineReleaser {
 
-  Servo servo;
+  public Servo servo;
   boolean isRed;
 
   double position=0.5;

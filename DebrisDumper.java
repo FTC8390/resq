@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.Range;
  * Created on 11/30/2015.
  */
 public class DebrisDumper {
-  Servo servo;
+  public Servo servo;
   boolean isRed;
 
   double position=0.5;

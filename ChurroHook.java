@@ -9,8 +9,9 @@ import com.qualcomm.robotcore.util.Range;
  */
 public class ChurroHook {
 
+  public Servo servo;
+
   public double position = 0.5;
-  Servo servo;
 
   public void init(HardwareMap hwMap) {
     servo = hwMap.servo.get("churro");
