@@ -40,11 +40,13 @@ public class DebrisDumper {
   }
 
   public void dump() {
-
+    position = dumpValue;
+    servo.setPosition(position);
   }
 
   public void collect() {
-
+    position = collectValue;
+    servo.setPosition(position);
   }
   
 }
