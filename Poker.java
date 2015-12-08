@@ -23,6 +23,7 @@ public class Poker {
   public void runAtPower(double power) {
     motor.setPower(Range.clip(power, -1, 1));
   }
+
   public void stop() {
     motor.setPower(0);
   }
@@ -36,14 +37,14 @@ public class Poker {
   }
 
   public void pullInToRobot() {
-
+    // do with encoder limits to not break lift!
   }
 
   public void pokeToVertical() {
-
+    // do with encoder limits to not break lift!
   }
 
   public void pokeToMountain() {
-
+    // do with encoder limits to not break lift!
   }
 }

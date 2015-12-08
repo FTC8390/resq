@@ -28,10 +28,10 @@ public class Lift {
   }
 
   public void raise() {
-
+    // do with encoder limits to not break lift!
   }
 
   public void lower() {
-
+    // do with encoder limits to not break lift!
   }
 }

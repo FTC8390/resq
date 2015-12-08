@@ -36,6 +36,7 @@ public class Winch {
   }
 
   public void unwind() {
+    // do at low power, to not fry motor or break ratchet!
 
   }
 }
