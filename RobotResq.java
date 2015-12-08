@@ -58,7 +58,7 @@ public class RobotResq {
     public void raiseHookTowardMountain() {
         if (poker.isByRobot() == true) {
             lift.stop();
-            poker.pokeToVertical();
+            poker.moveToVertical();
         } else if (lift.isUp() == false) {
             poker.stop();
             lift.raiseToTop();
@@ -70,8 +70,20 @@ public class RobotResq {
     }
 
 
-    public boolean dropHookAndRetractLift() {
-        return false;
+    public void dropHookAndRetractLift() {
+        if (lift.isHookDropped()== false) {
+            lift.lowerToBottom();
+            poker.stop();
+        } else if (poker.isByMountain() == true) {
+            poker.moveToVertical();
+            lift.stop();
+        } else if (lift.isDown() == false){
+            poker.stop();
+            lift.lowerToBottom();
+        } else {
+            lift.stop();
+            poker.pullInToRobot();
+        }
     }
 
 

@@ -52,6 +52,22 @@ public class Lift {
         }
     }
 
+    public boolean isDown() {
+        if (motor.getCurrentPosition() > -50) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isHookDropped() {
+        if (motor.getCurrentPosition() > -3000) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void lowerToBottom() {
         if (motor.getCurrentPosition() <= 0) {
             lower(); // do with encoder limits to not break lift!
