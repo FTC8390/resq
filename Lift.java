@@ -9,29 +9,46 @@ import com.qualcomm.robotcore.util.Range;
  * Created on 11/30/2015.
  */
 public class Lift {
-  public DcMotor motor;
+    public DcMotor motor;
 
-  public void init(HardwareMap hwMap) {
-    motor = hwMap.dcMotor.get("lift");
-    motor.setMode(DcMotorController.RunMode.RESET_ENCODERS);
-  }
+    public void init(HardwareMap hwMap) {
+        motor = hwMap.dcMotor.get("lift");
+        motor.setMode(DcMotorController.RunMode.RESET_ENCODERS);
+    }
 
-  public void start() {
-    motor.setMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-  }
+    public void start() {
+        motor.setMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+    }
 
-  public void runAtPower(double power) {
-    motor.setPower(Range.clip(power, -1, 1));
-  }
-  public void stop() {
-    motor.setPower(0);
-  }
+    public void runAtPower(double power) {
+        motor.setPower(Range.clip(power, -1, 1));
+    }
 
-  public void raise() {
-    motor.setPower(-0.75); // do with encoder limits to not break lift!
-  }
+    public void stop() {
+        motor.setPower(0);
+    }
 
-  public void lower() {
-    motor.setPower(0.75); // do with encoder limits to not break lift!
-  }
+    public void raise() {
+        motor.setPower(-0.75);
+    }
+
+    public void raiseToTop() {
+        if (motor.getCurrentPosition() > -13700) {
+            raise(); // do with encoder limits to not break lift!
+        } else {
+            stop();
+        }
+    }
+
+    public void lower() {
+        motor.setPower(0.75);
+    }
+
+    public void lowerToBottom() {
+        if (motor.getCurrentPosition() <= 0) {
+            lower(); // do with encoder limits to not break lift!
+        } else {
+            stop();
+        }
+    }
 }
