@@ -11,7 +11,7 @@ public class ChurroHook {
 
   public Servo servo;
 
-  public double position = 0.49;
+  public double position = 0.256;
 
   public void init(HardwareMap hwMap) {
     servo = hwMap.servo.get("churro");
@@ -28,12 +28,16 @@ public class ChurroHook {
   }
 
   public void raise() {
-    position = 0.24;
+    position = 0.693;
     servo.setPosition(position);
   }
 
   public void lower() {
-    position = 0.8;
+    position = 0.256;
+    servo.setPosition(position);
+  }
+  public void prepareForRamp() {
+    position = 0.543;
     servo.setPosition(position);
   }
 }
