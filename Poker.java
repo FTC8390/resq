@@ -46,14 +46,37 @@ public class Poker {
     }
 
     public void pokeToVertical() {
-        // do with encoder limits to not break lift!
+        if (motor.getCurrentPosition() < 6400) {
+            pokeOut();
+        }else if (motor.getCurrentPosition()>6600){
+            pullIn();
+            // do with encoder limits to not break lift!
+        }else{
+            stop();
+        }
+    }
+
+    public boolean isVertical(){
+        if(motor.getCurrentPosition()>6400 && motor.getCurrentPosition() <6600){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean isByRobot() {
+        if (motor.getCurrentPosition()<= 6400){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void pokeToMountain() {
         // do with encoder limits to not break lift!
-        if (motor.getCurrentPosition()<8600) {
+        if (motor.getCurrentPosition() < 8600) {
             pokeOut();
-        }else{
+        } else {
             stop();
         }
     }

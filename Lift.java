@@ -44,6 +44,14 @@ public class Lift {
         motor.setPower(0.75);
     }
 
+    public boolean isUp() {
+        if (motor.getCurrentPosition() < -5650) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void lowerToBottom() {
         if (motor.getCurrentPosition() <= 0) {
             lower(); // do with encoder limits to not break lift!

@@ -37,7 +37,7 @@ public class ChurroHook {
     servo.setPosition(position);
   }
   public void prepareForRamp() {
-    position = 0.543;
+    position = 0.62;
     servo.setPosition(position);
   }
 }
