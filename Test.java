@@ -105,11 +105,11 @@ public class Test extends OpMode {
     telemetry.addData("M lift", moosalot.lift.motor.getCurrentPosition());
     telemetry.addData("M poker", moosalot.poker.motor.getCurrentPosition());
 
-    telemetry.addData("S reddd", moosalot.redDebrisDumper.servo.getPosition());
-    telemetry.addData("S redz", moosalot.redZipLineReleaser.servo.getPosition());
-    telemetry.addData("S bluedd", moosalot.blueDebrisDumper.servo.getPosition());
-    telemetry.addData("S bluez", moosalot.blueZipLineReleaser.servo.getPosition());
-    telemetry.addData("S churro", moosalot.churroHook.servo.getPosition());
+    telemetry.addData("S reddd", moosalot.redDebrisDumper.position);
+    telemetry.addData("S redz", moosalot.redZipLineReleaser.position);
+    telemetry.addData("S bluedd", moosalot.blueDebrisDumper.position);
+    telemetry.addData("S bluez", moosalot.blueZipLineReleaser.position);
+    telemetry.addData("S churro", moosalot.churroHook.position);
 
   }
 }
