@@ -20,6 +20,9 @@ public class DriveTrain {
 
     leftDrive = hwMap.dcMotor.get("leftdrive");
     rightDrive = hwMap.dcMotor.get("rightdrive");
+    rightDrive.setDirection(DcMotor.Direction.REVERSE);
+    leftDrive.setDirection(DcMotor.Direction.REVERSE);
+
 
     leftDrive.setMode(DcMotorController.RunMode.RESET_ENCODERS);
     rightDrive.setMode(DcMotorController.RunMode.RESET_ENCODERS);
@@ -43,7 +46,8 @@ public class DriveTrain {
   }
 
   public void tankDrive(double left, double right) {
-
+    leftDrive.setPower(speed*left);
+    rightDrive.setPower(speed*right);
   }
   
   public void faceForward() {
@@ -55,10 +59,10 @@ public class DriveTrain {
   }
   
   public void highSpeed() {
-      
+    speed = 1;
   }
   
   public void lowSpeed() {
-      
+    speed = .5;
   }
 }
