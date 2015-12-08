@@ -29,15 +29,16 @@ public class Poker {
   }
 
   public void pullIn() {
-
+    motor.setPower(0.5);
   }
 
   public void pokeOut() {
-
+    motor.setPower(-0.5);
   }
 
   public void pullInToRobot() {
     // do with encoder limits to not break lift!
+    pullIn();
   }
 
   public void pokeToVertical() {
@@ -46,5 +47,6 @@ public class Poker {
 
   public void pokeToMountain() {
     // do with encoder limits to not break lift!
+    pokeOut();
   }
 }
