@@ -35,7 +35,7 @@ public class Test extends OpMode {
 
         telemetry.clearData();
 
-        moosalot.driveTrain.tankDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
+        moosalot.driveTrain.tankDrive(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
         telemetry.addData("A1", "g1.sticks = drive");
 
         moosalot.whiskTrain.runAtPower(gamepad2.right_stick_y);
