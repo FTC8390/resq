@@ -48,7 +48,7 @@ public class Teleop extends OpMode {
       moosalot.driveTrain.lowSpeed();    //low speed
     }
     
-    moosalot.driveTrain.tankDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
+    moosalot.driveTrain.tankDrive(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
 
     if (gamepad2.left_bumper) {
       moosalot.raiseHookTowardMountain(); //scissor lift up
