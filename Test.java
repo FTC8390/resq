@@ -36,10 +36,10 @@ public class Test extends OpMode {
     telemetry.clearData();
 
     moosalot.driveTrain.tankDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
-    telemetry.addData("A", "g1.sticks = drive");
+    telemetry.addData("A1", "g1.sticks = drive");
 
     moosalot.whiskTrain.runAtPower(gamepad2.right_stick_y);
-    telemetry.addData("A", "g2.right_stick = whisk");
+    telemetry.addData("A2", "g2.right_stick = whisk");
 
     if (gamepad1.dpad_up) {
       moosalot.redDebrisDumper.changePositionBy(positionUpdate);
@@ -47,7 +47,7 @@ public class Test extends OpMode {
     if (gamepad1.dpad_down) {
       moosalot.redDebrisDumper.changePositionBy(-positionUpdate);
     }
-    telemetry.addData("A", "g1.dpad = red dumper");
+    telemetry.addData("A3", "g1.dpad = red dumper");
 
     if (gamepad2.dpad_up) {
       moosalot.blueDebrisDumper.changePositionBy(positionUpdate);
@@ -55,7 +55,7 @@ public class Test extends OpMode {
     if (gamepad2.dpad_down) {
       moosalot.blueDebrisDumper.changePositionBy(-positionUpdate);
     }
-    telemetry.addData("A", "g2.dpad = blue dumper");
+    telemetry.addData("A4", "g2.dpad = blue dumper");
 
     if (gamepad1.x) {
       moosalot.redZipLineReleaser.changePositionBy(positionUpdate);
@@ -63,7 +63,7 @@ public class Test extends OpMode {
     if (gamepad1.a) {
       moosalot.redZipLineReleaser.changePositionBy(-positionUpdate);
     }
-    telemetry.addData("A", "g1.x,a = red zipliner");
+    telemetry.addData("A5", "g1.x,a = red zipliner");
 
     if (gamepad2.x) {
       moosalot.blueZipLineReleaser.changePositionBy(positionUpdate);
@@ -71,7 +71,7 @@ public class Test extends OpMode {
     if (gamepad2.a) {
       moosalot.blueZipLineReleaser.changePositionBy(-positionUpdate);
     }
-    telemetry.addData("A", "g2.x,a = blue zipliner");
+    telemetry.addData("A6", "g2.x,a = blue zipliner");
 
     if (gamepad1.left_bumper) {
       moosalot.churroHook.changePositionBy(positionUpdate);
@@ -79,7 +79,7 @@ public class Test extends OpMode {
     if (gamepad1.left_trigger>0.75) {
       moosalot.churroHook.changePositionBy(-positionUpdate);
     }
-    telemetry.addData("A", "g1.left_bump/trig = churro hook");
+    telemetry.addData("A7", "g1.left_bump/trig = churro hook");
 
     if (gamepad1.right_bumper) {
       moosalot.poker.pokeToMountain();
@@ -88,7 +88,7 @@ public class Test extends OpMode {
     } else {
       moosalot.poker.stop();
     }
-    telemetry.addData("A", "g1.right_bump/trig = poker");
+    telemetry.addData("A8", "g1.right_bump/trig = poker");
 
     if (gamepad2.left_bumper) {
       moosalot.lift.raise();
@@ -97,7 +97,7 @@ public class Test extends OpMode {
     } else {
       moosalot.lift.stop();
     }
-    telemetry.addData("A", "g2.left_bump/trig = lift");
+    telemetry.addData("A9", "g2.left_bump/trig = lift");
 
     if (gamepad2.right_bumper) {
       moosalot.winch.windUpMountain();
@@ -106,7 +106,7 @@ public class Test extends OpMode {
     } else {
       moosalot.winch.stop();
     }
-    telemetry.addData("A", "g2.right_bump/trig = winch");
+    telemetry.addData("AA", "g2.right_bump/trig = winch");
 
     telemetry.addData("D leftDrive", moosalot.driveTrain.leftDrive.getCurrentPosition());
     telemetry.addData("D rightDrive", moosalot.driveTrain.rightDrive.getCurrentPosition());
