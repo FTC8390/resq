@@ -33,7 +33,7 @@ public class Lift {
     }
 
     public void raiseToTop() {
-        if (motor.getCurrentPosition() > -13700) {
+        if (motor.getCurrentPosition() > -14200) {
             raise(); // do with encoder limits to not break lift!
         } else {
             stop();

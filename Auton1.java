@@ -20,8 +20,8 @@ public class Auton1 extends LinearOpMode {
 
      // do autonomous stuff here
 
-    moosalot.driveTrain.tankDrive(.75, .75);
-    while(moosalot.driveTrain.leftDrive.getCurrentPosition()< 5000){
+    moosalot.driveTrain.tankDrive(-.75, -.75);
+    while(moosalot.driveTrain.leftDrive.getCurrentPosition()> -5000){
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
