@@ -18,7 +18,22 @@ public class Auton1 extends LinearOpMode {
     moosalot.start();
     waitOneFullHardwareCycle();
 
-    // do autonomous stuff here
+     // do autonomous stuff here
+
+    moosalot.driveTrain.tankDrive(.75, .75);
+    while(moosalot.driveTrain.leftDrive.getCurrentPosition()< 5000){
+      waitOneFullHardwareCycle();
+    }
+    moosalot.driveTrain.tankDrive(0, 0);
+    sleep(1000);
+    moosalot.blueDebrisDumper.dump();
+    moosalot.redDebrisDumper.dump();
+    sleep(2000);
+    moosalot.redDebrisDumper.collect();
+    moosalot.blueDebrisDumper.collect();
+    sleep(2000);
+    //drive towards rescue beacon
+    //dump climbers in place
 
   }
 }
