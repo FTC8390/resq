@@ -32,6 +32,18 @@ public class Teleop extends OpMode {
   @Override
   public void loop() {
 
+    if(gamepad2.b){
+      moosalot.redDebrisDumper.dump();
+    }else{
+      moosalot.redDebrisDumper.collect();
+    }
+
+    if(gamepad2.x){
+      moosalot.blueDebrisDumper.dump();
+    }else{
+      moosalot.blueDebrisDumper.collect();
+    }
+
     if (gamepad1.y) {
       moosalot.driveTrain.faceForward();  //drive facing forward
     }
@@ -70,16 +82,20 @@ public class Teleop extends OpMode {
     if (gamepad2.dpad_up){
       moosalot.churroHook.raise();
     }
+
+    if(gamepad2.dpad_right){
+      moosalot.churroHook.prepareForRamp();
+    }
     
     if (gamepad2.dpad_down){
       moosalot.churroHook.lower();
     }
     
     if (gamepad2.right_bumper){
-      moosalot.whiskTrain.pullInDebris();    //whisk train in
+      moosalot.whiskTrain.pushOutDebris();    //whisk train in
     } 
     else if (gamepad2.right_trigger > 0.75){
-      moosalot.whiskTrain.pushOutDebris();
+      moosalot.whiskTrain.pullInDebris();
     } 
     else {
       moosalot.whiskTrain.stop();

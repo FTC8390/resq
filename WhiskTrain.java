@@ -28,11 +28,11 @@ public class WhiskTrain {
   }
 
   public void pullInDebris() {
-
+    motor.setPower(1);
   }
 
   public void pushOutDebris() {
-
+    motor.setPower(-1);
   }
 
 }

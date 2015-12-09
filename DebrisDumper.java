@@ -19,12 +19,12 @@ public class DebrisDumper {
     isRed = isRedIn;
     if (isRed) {
       servo = hwMap.servo.get("reddd");
-      dumpValue = 0.25;
-      collectValue = 0.75;
+      dumpValue = 0.062;
+      collectValue = 0.88;
     } else {
       servo = hwMap.servo.get("bluedd");
-      dumpValue = 0.75;
-      collectValue = 0.25;
+      dumpValue = 0.928;
+      collectValue = 0.094;
     }
 
     position = collectValue;
