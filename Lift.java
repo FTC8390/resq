@@ -33,7 +33,7 @@ public class Lift {
     }
 
     public void raiseToTop() {
-        if (motor.getCurrentPosition() > -14200) {
+        if (motor.getCurrentPosition() > -13700) {
             raise(); // do with encoder limits to not break lift!
         } else {
             stop();
@@ -53,7 +53,7 @@ public class Lift {
     }
 
     public boolean isUp() {
-        if (motor.getCurrentPosition() < -5650) {
+        if (motor.getCurrentPosition() < -6650) { // value high enough to drop hook
             return true;
         } else {
             return false;
