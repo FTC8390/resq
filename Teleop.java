@@ -73,7 +73,8 @@ public class Teleop extends OpMode {
     }
       
     if(gamepad2.y){
-      moosalot.winch.windUpMountain();
+      /// moosalot.winch.windUpMountain();
+      moosalot.winch.stop(); // temporary disable until winch shields work!
     } 
     else {
       moosalot.winch.stop();
