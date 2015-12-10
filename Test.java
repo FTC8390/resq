@@ -35,7 +35,11 @@ public class Test extends OpMode {
 
         telemetry.clearData();
 
-        moosalot.driveTrain.tankDrive(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
+        if (!gamepad1.left_stick_button) {
+            moosalot.driveTrain.tankDrive(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
+        } else {
+            moosalot.driveTrain.tankDrive(0, 0);
+        }
         telemetry.addData("A1", "g1.sticks = drive");
 
         moosalot.whiskTrain.runAtPower(gamepad2.right_stick_y);
@@ -114,6 +118,7 @@ public class Test extends OpMode {
 
         telemetry.addData("AB", "both starts = poker in no encoder!!!");
         telemetry.addData("AC", "both left stick buttons = lift down no encoder!!!");
+
 
         telemetry.addData("D leftDrive", moosalot.driveTrain.leftDrive.getCurrentPosition());
         telemetry.addData("D rightDrive", moosalot.driveTrain.rightDrive.getCurrentPosition());
