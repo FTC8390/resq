@@ -43,6 +43,14 @@ public class Lift {
     public void lower() {
         motor.setPower(0.75);
     }
+    
+    public void lowerToBottom() {
+        if (motor.getCurrentPosition() <= 0) {
+            lower(); // do with encoder limits to not break lift!
+        } else {
+            stop();
+        }
+    }
 
     public boolean isUp() {
         if (motor.getCurrentPosition() < -5650) {
@@ -68,11 +76,4 @@ public class Lift {
         }
     }
 
-    public void lowerToBottom() {
-        if (motor.getCurrentPosition() <= 0) {
-            lower(); // do with encoder limits to not break lift!
-        } else {
-            stop();
-        }
-    }
 }
