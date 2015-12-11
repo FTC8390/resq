@@ -22,7 +22,7 @@ public class Auton1 extends LinearOpMode {
 
     //drive towards rescue beacon
     moosalot.driveTrain.tankDrive(-.75, -.75);
-    while(moosalot.driveTrain.leftDrive.getCurrentPosition()> -5000){
+    while(moosalot.driveTrain.leftDrive.getCurrentPosition()> -9000){
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);

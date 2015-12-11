@@ -53,7 +53,7 @@ public class Lift {
     }
 
     public boolean isUp() {
-        if (motor.getCurrentPosition() < -8050) { // value high enough to drop hook
+        if (motor.getCurrentPosition() < -5600) { // value high enough to drop hook
             return true;
         } else {
             return false;

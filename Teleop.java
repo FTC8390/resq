@@ -80,7 +80,7 @@ public class Teleop extends OpMode {
       moosalot.winch.stop();
     }
     
-    if (gamepad2.dpad_up){
+    if (gamepad2.dpad_up || gamepad1.left_bumper){
       moosalot.churroHook.raise();
     }
 
@@ -88,7 +88,7 @@ public class Teleop extends OpMode {
       moosalot.churroHook.prepareForRamp();
     }
     
-    if (gamepad2.dpad_down){
+    if (gamepad2.dpad_down || (gamepad1.left_trigger>0.75)){
       moosalot.churroHook.lower();
     }
     
