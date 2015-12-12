@@ -25,7 +25,6 @@ public class Auton2 extends LinearOpMode {
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() > -9500) {
       waitOneFullHardwareCycle();
     }
-    sleep(2000);
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
 
@@ -35,6 +34,7 @@ public class Auton2 extends LinearOpMode {
       moosalot.redDebrisDumper.dumpSlowly();
       waitOneFullHardwareCycle();
     }
+    sleep(2000);
     moosalot.redDebrisDumper.collect();
     moosalot.blueDebrisDumper.collect();
     sleep(2000);
