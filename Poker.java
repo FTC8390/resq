@@ -46,7 +46,7 @@ public class Poker {
     }
 
     public void moveToVertical() {
-        if (motor.getCurrentPosition() < 5500) {
+        if (motor.getCurrentPosition() < 6200) {
             pokeOut();
         }else if (motor.getCurrentPosition()>5700){
             pullIn();
@@ -65,7 +65,7 @@ public class Poker {
     }
 
     public boolean isByRobot() {
-        if (motor.getCurrentPosition()<= 5000){
+        if (motor.getCurrentPosition()<= 4900){
             return true;
         }else{
             return false;
@@ -73,7 +73,7 @@ public class Poker {
     }
 
     public boolean isByMountain() {
-        if (motor.getCurrentPosition()>= 5200){
+        if (motor.getCurrentPosition()>= 5100){
             return true;
         }else{
             return false;
