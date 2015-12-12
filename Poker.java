@@ -46,9 +46,9 @@ public class Poker {
     }
 
     public void moveToVertical() {
-        if (motor.getCurrentPosition() < 4900) {
+        if (motor.getCurrentPosition() < 6200) {
             pokeOut();
-        }else if (motor.getCurrentPosition()>5100){
+        }else if (motor.getCurrentPosition()>5700){
             pullIn();
             // do with encoder limits to not break lift!
         }else{

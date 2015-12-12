@@ -10,6 +10,7 @@ import com.qualcomm.robotcore.util.Range;
 public class DebrisDumper {
   public Servo servo;
   boolean isRed;
+  boolean isDumpSmall;
 
   double position=0.5;
 
@@ -20,10 +21,12 @@ public class DebrisDumper {
     if (isRed) {
       servo = hwMap.servo.get("reddd");
       dumpValue = 0.062;
+      isDumpSmall=true;
       collectValue = 0.88;
     } else {
       servo = hwMap.servo.get("bluedd");
       dumpValue = 0.928;
+      isDumpSmall=false;
       collectValue = 0.094;
     }
 
@@ -42,6 +45,29 @@ public class DebrisDumper {
   public void dump() {
     position = dumpValue;
     servo.setPosition(position);
+  }
+  public void dumpSlowly() {
+    if(isDumpSmall){
+      changePositionBy(-.008);
+    }
+    else{
+      changePositionBy(.007);
+    }
+  }
+
+  public boolean isDumped(){
+    if(isDumpSmall){
+      if(position<=dumpValue)
+        return true;
+      else
+        return false;
+    }else{
+      if(position>=dumpValue)
+        return true;
+      else
+        return false;
+    }
+
   }
 
   public void collect() {

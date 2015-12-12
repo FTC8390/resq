@@ -2,7 +2,7 @@ package ftc8390.resq;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-public class Auton1 extends LinearOpMode {
+public class Auton2 extends LinearOpMode {
 
   private RobotResq moosalot;
 
@@ -29,9 +29,11 @@ public class Auton1 extends LinearOpMode {
     sleep(1000);
     
     //dump climbers in place
-    moosalot.blueDebrisDumper.dump();
-    moosalot.redDebrisDumper.dump();
-    sleep(2000);
+    while(moosalot.redDebrisDumper.isDumped()==false) {
+      moosalot.blueDebrisDumper.dumpSlowly();
+      moosalot.redDebrisDumper.dumpSlowly();
+      waitOneFullHardwareCycle();
+    }
     moosalot.redDebrisDumper.collect();
     moosalot.blueDebrisDumper.collect();
     sleep(2000);
