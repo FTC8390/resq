@@ -33,7 +33,10 @@ public class Teleop extends OpMode {
   public void loop() {
 
     if(gamepad2.b){
-      moosalot.redDebrisDumper.dump();
+      //moosalot.redDebrisDumper.dump();
+      if(moosalot.redDebrisDumper.isDumped()==false){
+        moosalot.redDebrisDumper.dumpSlowly();
+      }
     }else{
       moosalot.redDebrisDumper.collect();
     }
