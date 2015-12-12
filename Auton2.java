@@ -18,19 +18,19 @@ public class Auton2 extends LinearOpMode {
     moosalot.start();
     waitOneFullHardwareCycle();
 
-     // do autonomous stuff here
+    // do autonomous stuff here
 
     //drive towards rescue beacon
     moosalot.driveTrain.tankDrive(-.75, -.75);
-    while(moosalot.driveTrain.leftDrive.getCurrentPosition()> -9500){
+    while (moosalot.driveTrain.leftDrive.getCurrentPosition() > -9500) {
       waitOneFullHardwareCycle();
     }
     sleep(2000);
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
-    
+
     //dump climbers in place
-    while(moosalot.redDebrisDumper.isDumped()==false) {
+    while (moosalot.redDebrisDumper.isDumped() == false) {
       moosalot.blueDebrisDumper.dumpSlowly();
       moosalot.redDebrisDumper.dumpSlowly();
       waitOneFullHardwareCycle();
@@ -38,8 +38,5 @@ public class Auton2 extends LinearOpMode {
     moosalot.redDebrisDumper.collect();
     moosalot.blueDebrisDumper.collect();
     sleep(2000);
-
-
-
   }
 }
