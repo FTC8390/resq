@@ -28,6 +28,12 @@ public class DriveTrain {
         rightDrive.setMode(DcMotorController.RunMode.RESET_ENCODERS);
     }
 
+    public void setModeToRunUsingEncoders() {
+        leftDrive.setMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        rightDrive.setMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+
+    }
+
     public void start() {
         leftDrive.setMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
         rightDrive.setMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);

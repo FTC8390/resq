@@ -30,6 +30,7 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("Auton2", Auton2.class);
     manager.register("Manual Test", Test.class);
     manager.register("WinchControl", OpWinchControl.class);
+    manager.register("Change Auton", ChangeAutonDistances.class);
     manager.register("NullOp", NullOp.class);
 
   }

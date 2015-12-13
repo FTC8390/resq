@@ -6,6 +6,8 @@ public class Auton1 extends LinearOpMode {
 
   private RobotResq moosalot;
 
+  AutonFileHandler autonFile;
+
   @Override
   public void runOpMode() throws InterruptedException {
 

@@ -8,6 +8,9 @@ public class Auton2 extends LinearOpMode {
 
   @Override
   public void runOpMode() throws InterruptedException {
+    AutonFileHandler autonFile;
+    autonFile= new AutonFileHandler();
+    autonFile.readDataFromFile(hardwareMap.appContext);
 
     moosalot = new RobotResq();
     moosalot.init(hardwareMap);
@@ -16,17 +19,32 @@ public class Auton2 extends LinearOpMode {
     // wait for the start button to be pressed
     waitForStart();
     moosalot.start();
+    //moosalot.driveTrain.setModeToRunUsingEncoders();
     waitOneFullHardwareCycle();
 
     // do autonomous stuff here
 
     //drive towards rescue beacon
-    moosalot.driveTrain.tankDrive(-.75, -.75);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() > -9500) {
+    moosalot.driveTrain.tankDrive(-.5, -.5);
+    while (moosalot.driveTrain.leftDrive.getCurrentPosition() > autonFile.driveDistance) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
+
+    // turn
+    int turnTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.turnDistance;
+    moosalot.driveTrain.tankDrive(.5, .0);
+    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < turnTarget ) {
+      waitOneFullHardwareCycle();
+    }
+    moosalot.driveTrain.tankDrive(0, 0);
+    sleep(1000);
+
+    // backup here?
+
+
+
 
     //dump climbers in place
     while (moosalot.redDebrisDumper.isDumped() == false) {
