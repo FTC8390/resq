@@ -13,9 +13,11 @@ public class AutonFileHandler {
   // variables used during the configuration process
   private String configFileName = "AutonInfo.txt";
 
-  public Integer readDriveDistance(Context context) {
+  // all data here
+  public Integer driveDistance;
+
+  public void readDataFromFile(Context context) {
     // setup initial configuration parameters here
-    Integer driveDistance = 0;
 
     // read configuration data from file
     try {
@@ -33,10 +35,9 @@ public class AutonFileHandler {
       driveDistance = -9500;
     }
 
-    return driveDistance;
   }
 
-  public boolean writeData(Context context, Integer driveDistance) {
+  public boolean writeDataToFile(Context context) {
     // may want to write configuration parameters to a file here if they are needed for teleop too!
     try {
       OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(configFileName, Context.MODE_PRIVATE));
@@ -49,7 +50,6 @@ public class AutonFileHandler {
     } catch (IOException e) {
       return false;
     }
-
 
   }
 
