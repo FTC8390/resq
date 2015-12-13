@@ -27,11 +27,13 @@ public class AutonFileHandler {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
+        // read data here
         driveDistance = Integer.valueOf(bufferedReader.readLine());
 
         inputStream.close();
       }
     } catch (Exception e) {
+      // values here, for first time or in case there's a problem reading.
       driveDistance = -9500;
     }
 
@@ -42,7 +44,7 @@ public class AutonFileHandler {
     try {
       OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(configFileName, Context.MODE_PRIVATE));
 
-      // write each parameter as a string on its own line
+      // write data here, as a string on its own line. "\n" puts a new line at the end of the write, like hitting "enter"
       outputStreamWriter.write(Integer.toString(driveDistance) + "\n");
 
       outputStreamWriter.close();
