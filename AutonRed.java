@@ -19,13 +19,14 @@ public class AutonRed extends LinearOpMode {
     // wait for the start button to be pressed
     waitForStart();
     moosalot.start();
-    //moosalot.driveTrain.setModeToRunUsingEncoders();
+
+    moosalot.driveTrain.setModeToRunUsingEncoders();
     waitOneFullHardwareCycle();
 
     // do autonomous stuff here
 
     //drive towards rescue beacon
-    moosalot.driveTrain.tankDrive(-.5, -.5);
+    moosalot.driveTrain.tankDrive(-.6, -.6);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() > autonFile.driveDistance) {
       waitOneFullHardwareCycle();
     }
@@ -53,6 +54,7 @@ public class AutonRed extends LinearOpMode {
       waitOneFullHardwareCycle();
     }
     sleep(2000);
+
     moosalot.redDebrisDumper.collect();
     moosalot.blueDebrisDumper.collect();
     sleep(2000);
