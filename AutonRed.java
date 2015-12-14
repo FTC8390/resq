@@ -2,7 +2,7 @@ package ftc8390.resq;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-public class Auton2 extends LinearOpMode {
+public class AutonRed extends LinearOpMode {
 
   private RobotResq moosalot;
 
