@@ -20,7 +20,7 @@ public class DriveTrain {
 
         leftDrive = hwMap.dcMotor.get("leftdrive");
         rightDrive = hwMap.dcMotor.get("rightdrive");
-        // rightDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
         // leftDrive.setDirection(DcMotor.Direction.REVERSE);
 
 
