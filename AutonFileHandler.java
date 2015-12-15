@@ -18,12 +18,15 @@ public class AutonFileHandler {
 
   public  Integer turnDistance;
 
+  public Integer backDistance;
+
   public void readDataFromFile(Context context) {
     // setup initial configuration parameters here
 
     // read configuration data from file
     driveDistance = -9500;
     turnDistance = 0;
+    backDistance = 0;
     try {
       InputStream inputStream = context.openFileInput(configFileName);
 
@@ -34,6 +37,7 @@ public class AutonFileHandler {
         // read data here
         driveDistance = Integer.valueOf(bufferedReader.readLine());
         turnDistance = Integer.valueOf(bufferedReader.readLine());
+        backDistance = Integer.valueOf(bufferedReader.readLine());
 
         inputStream.close();
       }
@@ -41,6 +45,7 @@ public class AutonFileHandler {
       // values here, for first time or in case there's a problem reading.
       driveDistance = -9500;
       turnDistance = 0;
+      backDistance = 0;
     }
 
   }
@@ -53,6 +58,7 @@ public class AutonFileHandler {
       // write data here, as a string on its own line. "\n" puts a new line at the end of the write, like hitting "enter"
       outputStreamWriter.write(Integer.toString(driveDistance) + "\n");
       outputStreamWriter.write(Integer.toString(turnDistance) + "\n");
+      outputStreamWriter.write(Integer.toString(backDistance) + "\n");
       outputStreamWriter.close();
       return true;
     } catch (IOException e) {

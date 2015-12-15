@@ -2,7 +2,7 @@ package ftc8390.resq;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-public class AutonRed extends LinearOpMode {
+public class AutonBlue extends LinearOpMode {
 
   private RobotResq moosalot;
 
@@ -37,6 +37,16 @@ public class AutonRed extends LinearOpMode {
     int turnTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.turnDistance;
     moosalot.driveTrain.tankDrive(.0, .5);
     while (moosalot.driveTrain.rightDrive.getCurrentPosition() < turnTarget ) {
+      waitOneFullHardwareCycle();
+    }
+    moosalot.driveTrain.tankDrive(0, 0);
+    sleep(1000);
+
+
+
+    int backTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.backDistance;
+    moosalot.driveTrain.tankDrive(.5 , .5);
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() < backTarget ) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
