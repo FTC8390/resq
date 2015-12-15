@@ -27,16 +27,16 @@ public class AutonRed extends LinearOpMode {
 
     //drive towards rescue beacon
     moosalot.driveTrain.tankDrive(-.6, -.6);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() > autonFile.driveDistance) {
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > autonFile.driveDistance) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
 
     // turn
-    int turnTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.turnDistance;
-    moosalot.driveTrain.tankDrive(.5, .0);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < turnTarget ) {
+    int turnTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.turnDistance;
+    moosalot.driveTrain.tankDrive(.0, .5);
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() < turnTarget ) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
@@ -48,14 +48,12 @@ public class AutonRed extends LinearOpMode {
 
 
     //dump climbers in place
-    while (moosalot.redDebrisDumper.isDumped() == false) {
+    while (moosalot.blueDebrisDumper.isDumped() == false) {
       moosalot.blueDebrisDumper.dumpSlowly();
-      moosalot.redDebrisDumper.dumpSlowly();
       waitOneFullHardwareCycle();
     }
     sleep(2000);
 
-    moosalot.redDebrisDumper.collect();
     moosalot.blueDebrisDumper.collect();
     sleep(2000);
   }
