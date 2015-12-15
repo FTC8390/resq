@@ -49,14 +49,12 @@ public class AutonRed extends LinearOpMode {
 
     //dump climbers in place
     while (moosalot.redDebrisDumper.isDumped() == false) {
-      moosalot.blueDebrisDumper.dumpSlowly();
       moosalot.redDebrisDumper.dumpSlowly();
       waitOneFullHardwareCycle();
     }
     sleep(2000);
 
     moosalot.redDebrisDumper.collect();
-    moosalot.blueDebrisDumper.collect();
     sleep(2000);
   }
 }
