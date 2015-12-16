@@ -1,16 +1,12 @@
 package ftc8390.resq;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * TeleOp Mode
  * Enables control of the robot via the gamepad
  */
 public class Teleop extends OpMode {
-
-  private String startDate;
-  private ElapsedTime runtime = new ElapsedTime();
 
   private RobotResq moosalot;
 
