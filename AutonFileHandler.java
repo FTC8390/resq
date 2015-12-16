@@ -15,9 +15,7 @@ public class AutonFileHandler {
 
   // all data here
   public Integer driveDistance;
-
-  public  Integer turnDistance;
-
+  public Integer turnDistance;
   public Integer backDistance;
 
   public void readDataFromFile(Context context) {

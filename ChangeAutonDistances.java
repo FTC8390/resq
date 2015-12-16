@@ -16,7 +16,7 @@ public class ChangeAutonDistances extends OpMode {
   public void init_loop() {
     telemetry.addData("driveDistance", autonFile.driveDistance);
     telemetry.addData("turnDistance", autonFile.turnDistance);
-    telemetry.addData("backDistance", autonFile.turnDistance);
+    telemetry.addData("backDistance", autonFile.backDistance);
 
     
     if (gamepad1.y) {
@@ -34,11 +34,12 @@ public class ChangeAutonDistances extends OpMode {
     if (gamepad1.dpad_down) {
       autonFile.turnDistance -= 2;
     }
+
     if (gamepad1.right_bumper) {
       autonFile.backDistance += 2;
     }
 
-    if (gamepad1.right_trigger < .75) {
+    if (gamepad1.right_trigger > .75) {
       autonFile.backDistance -= 2;
     }
 

@@ -42,8 +42,7 @@ public class AutonBlue extends LinearOpMode {
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
 
-
-
+    // backup
     int backTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.backDistance;
     moosalot.driveTrain.tankDrive(.5 , .5);
     while (moosalot.driveTrain.rightDrive.getCurrentPosition() < backTarget ) {
@@ -51,11 +50,6 @@ public class AutonBlue extends LinearOpMode {
     }
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
-
-    // backup here?
-
-
-
 
     //dump climbers in place
     while (moosalot.blueDebrisDumper.isDumped() == false) {
