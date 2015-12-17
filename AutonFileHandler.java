@@ -22,8 +22,8 @@ public class AutonFileHandler {
     // setup initial configuration parameters here
 
     // read configuration data from file
-    driveDistance = -9500;
-    turnDistance = 0;
+    driveDistance = -9844;
+    turnDistance = 1432;
     backDistance = 0;
     try {
       InputStream inputStream = context.openFileInput(configFileName);
@@ -41,8 +41,8 @@ public class AutonFileHandler {
       }
     } catch (Exception e) {
       // values here, for first time or in case there's a problem reading.
-      driveDistance = -9500;
-      turnDistance = 0;
+      driveDistance = -9844;
+      turnDistance = 1432;
       backDistance = 0;
     }
 
