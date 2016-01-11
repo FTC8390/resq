@@ -9,36 +9,43 @@ import com.qualcomm.robotcore.util.Range;
  */
 public class ChurroHook {
 
-  public Servo servo;
+  public Servo servoLeft;
+  public Servo servoRight;
 
-  public double position = 0.256;
+  public double positionLeft = 0.256;
+  public double positionRight = 0.256;
 
   public void init(HardwareMap hwMap) {
-    servo = hwMap.servo.get("churro");
-    servo.setPosition(position);
+    servoLeft = hwMap.servo.get("churroL");
+    servoRight = hwMap.servo.get("churroR");
+    raise();
   }
 
   public void start() {
   }
 
-  public double changePositionBy(double amount) {
-    position = Range.clip(position + amount, 0, 1);
-    servo.setPosition(position);
-    return position;
+  public void changePositionBy(double amount) {
+    positionLeft = Range.clip(positionLeft + amount, 0, 1);
+    servoLeft.setPosition(positionLeft);
+    positionRight = Range.clip(positionRight + amount, 0, 1);
+    servoRight.setPosition(positionRight);
   }
 
   public void raise() {
-    position = 0.6;
-    servo.setPosition(position);
+    positionLeft = 0.6;
+    servoLeft.setPosition(positionLeft);
+    positionRight = 0.256;
+    servoRight.setPosition(positionRight);
   }
 
   public void lower() {
-    position = 0.256;
-    servo.setPosition(position);
+    positionLeft = 0.256;
+    servoLeft.setPosition(positionLeft);
+    positionRight = 0.6;
+    servoRight.setPosition(positionRight);
   }
 
   public void prepareForRamp() {
-    position = 0.508;
-    servo.setPosition(position);
+    raise();
   }
 }
