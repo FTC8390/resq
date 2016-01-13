@@ -41,7 +41,11 @@ public class Lift {
     }
 
     public void lower() {
-        motor.setPower(0.75);
+        if (motor.getCurrentPosition()< -3000) {
+            motor.setPower(1);
+        } else {
+            motor.setPower(0.75);
+        }
     }
     
     public void lowerToBottom() {
@@ -53,27 +57,16 @@ public class Lift {
     }
 
     public boolean isUp() {
-        if (motor.getCurrentPosition() < -6500) { // value high enough to drop hook
-            return true;
-        } else {
-            return false;
-        }
+        // value high enough to drop hook
+        return motor.getCurrentPosition() < -6500;
     }
 
     public boolean isDown() {
-        if (motor.getCurrentPosition() > -50) {
-            return true;
-        } else {
-            return false;
-        }
+        return motor.getCurrentPosition() > -50;
     }
 
     public boolean isHookDropped() {
-        if (motor.getCurrentPosition() > -3000) {
-            return true;
-        } else {
-            return false;
-        }
+        return motor.getCurrentPosition() > -3000;
     }
 
 }
