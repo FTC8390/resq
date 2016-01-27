@@ -132,7 +132,8 @@ public class Test extends OpMode {
         telemetry.addData("S redz", moosalot.redZipLineReleaser.position);
         telemetry.addData("S bluedd", moosalot.blueDebrisDumper.position);
         telemetry.addData("S bluez", moosalot.blueZipLineReleaser.position);
-        telemetry.addData("S churro", moosalot.churroHook.position);
+        telemetry.addData("S churroL", moosalot.churroHook.positionLeft);
+        telemetry.addData("S churroR", moosalot.churroHook.positionRight);
 
     }
 }

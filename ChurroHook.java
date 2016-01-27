@@ -17,20 +17,18 @@ public class ChurroHook {
 
   public void init(HardwareMap hwMap) {
     servoLeft = hwMap.servo.get("churroL");
-    servoLeft.setPosition(positionLeft);
     servoRight = hwMap.servo.get("churroR");
-    servoRight.setPosition(positionRight);
+    raise();
   }
 
   public void start() {
   }
 
-  public double changePositionBy(double amount) {
+  public void changePositionBy(double amount) {
     positionLeft = Range.clip(positionLeft + amount, 0, 1);
     servoLeft.setPosition(positionLeft);
     positionRight = Range.clip(positionRight + amount, 0, 1);
     servoRight.setPosition(positionRight);
-    return positionRight;
   }
 
   public void raise() {
