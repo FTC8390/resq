@@ -64,17 +64,38 @@ public class Teleop extends OpMode {
 
     moosalot.driveTrain.tankDrive(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
 
-    if (gamepad2.left_bumper) {
+    /*if (gamepad2.left_bumper) {
       moosalot.raiseHookTowardMountain(); //scissor lift up
     } else if (gamepad2.left_trigger > 0.75) {
       moosalot.dropHookAndRetractLift();  //scissor lift down
     } else {
       moosalot.stopHook();
+    }*/
+
+
+
+    if (gamepad2.left_stick_y < -0.75){
+      moosalot.poker.pokeOut();
+    }
+    else if (gamepad2.left_stick_y > +0.75){
+      moosalot.poker.pullIn();
+    }
+    else{
+      moosalot.poker.stop();
+    }
+
+    if (gamepad2.right_stick_y < -0.75){
+      moosalot.lift.raise();
+    }
+    else if (gamepad2.right_stick_y > +0.75){
+      moosalot.lift.lower();
+    }
+    else{
+      moosalot.lift.stop();
     }
 
     if (gamepad2.y) {
-      /// moosalot.winch.windUpMountain();
-      moosalot.winch.stop(); // temporary disable until winch shields work!
+      moosalot.winch.wind();
     } else {
       moosalot.winch.stop();
     }

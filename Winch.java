@@ -29,7 +29,7 @@ public class Winch {
     }
 
     public void wind() {
-        motor.setPower(1.0);
+        motor.setPower(-1.0);
     }
 
     public void windUpMountain() {
@@ -38,7 +38,7 @@ public class Winch {
 
     public void unwind() {
         // do at low power, to not fry motor or break ratchet!
-        motor.setPower(-0.05);
+        motor.setPower(0.15);
 
     }
 }
