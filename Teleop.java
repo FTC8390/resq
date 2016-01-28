@@ -33,18 +33,25 @@ public class Teleop extends OpMode {
       if (moosalot.redDebrisDumper.isDumped() == false) {
         moosalot.redDebrisDumper.dumpSlowly();
       }
+    } else if (gamepad1.b){
+      moosalot.redDebrisDumper.redHighDump();
     } else {
       moosalot.redDebrisDumper.collect();
     }
+
 
     if (gamepad2.x) {
       //moosalot.blueDebrisDumper.dump();
       if (moosalot.blueDebrisDumper.isDumped() == false) {
         moosalot.blueDebrisDumper.dumpSlowly();
       }
+    } else if (gamepad1.x){
+      moosalot.blueDebrisDumper.blueHighDump();
     } else {
       moosalot.blueDebrisDumper.collect();
     }
+
+
 
     if (gamepad1.y) {
       moosalot.driveTrain.faceForward();  //drive facing forward
@@ -62,13 +69,7 @@ public class Teleop extends OpMode {
       moosalot.driveTrain.lowSpeed();    //low speed
     }
 
-    if (gamepad1.x){
-      moosalot.blueDebrisDumper.blueHighDump();
-    }
 
-    if(gamepad1.b){
-      moosalot.redDebrisDumper.redHighDump();
-    }
 
     moosalot.driveTrain.tankDrive(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
 
