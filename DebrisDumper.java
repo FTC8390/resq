@@ -42,6 +42,15 @@ public class DebrisDumper {
     servo.setPosition(position);
   }
 
+  public void blueHighDump(){
+    position = .713;
+    servo.setPosition(position);
+  }
+  public void redHighDump(){
+    position = .277;
+    servo.setPosition(position);
+  }
+
   public void dump() {
     position = dumpValue;
     servo.setPosition(position);
