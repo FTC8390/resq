@@ -49,6 +49,9 @@ public class ChangeAutonDistances extends OpMode {
     }
     if (gamepad1.left_trigger > .75) {
       autonFile.waitTime -= 4;
+      if (autonFile.waitTime<0) {
+        autonFile.waitTime=0;
+      }
     }
     if (gamepad1.x) {
       autonFile.climberDump = false;
