@@ -17,6 +17,8 @@ public class ChangeAutonDistances extends OpMode {
     telemetry.addData("driveDistance", autonFile.driveDistance);
     telemetry.addData("turnDistance", autonFile.turnDistance);
     telemetry.addData("backDistance", autonFile.backDistance);
+    telemetry.addData("waitTime", autonFile.waitTime);
+    telemetry.addData("climberDump", autonFile.climberDump);
 
     
     if (gamepad1.y) {
@@ -41,6 +43,18 @@ public class ChangeAutonDistances extends OpMode {
 
     if (gamepad1.right_trigger > .75) {
       autonFile.backDistance -= 2;
+    }
+    if ( gamepad1.left_bumper) {
+      autonFile.waitTime += 4;
+    }
+    if (gamepad1.left_trigger > .75) {
+      autonFile.waitTime -= 4;
+    }
+    if (gamepad1.x) {
+      autonFile.climberDump = false;
+    }
+    if (gamepad1.b) {
+      autonFile.climberDump = true;
     }
 
   }

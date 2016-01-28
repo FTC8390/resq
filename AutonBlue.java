@@ -9,12 +9,14 @@ public class AutonBlue extends LinearOpMode {
   @Override
   public void runOpMode() throws InterruptedException {
     AutonFileHandler autonFile;
-    autonFile= new AutonFileHandler();
+    autonFile = new AutonFileHandler();
     autonFile.readDataFromFile(hardwareMap.appContext);
+
 
     moosalot = new RobotResq();
     moosalot.init(hardwareMap);
     waitOneFullHardwareCycle();
+
 
     // wait for the start button to be pressed
     waitForStart();
@@ -24,6 +26,8 @@ public class AutonBlue extends LinearOpMode {
     waitOneFullHardwareCycle();
 
     // do autonomous stuff here
+
+    sleep(autonFile.waitTime);
 
     //drive towards rescue beacon
     moosalot.driveTrain.tankDrive(-.6, -.6);
@@ -36,7 +40,7 @@ public class AutonBlue extends LinearOpMode {
     // turn
     int turnTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.turnDistance;
     moosalot.driveTrain.tankDrive(.0, .5);
-    while (moosalot.driveTrain.rightDrive.getCurrentPosition() < turnTarget ) {
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() < turnTarget) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
@@ -44,8 +48,8 @@ public class AutonBlue extends LinearOpMode {
 
     // backup
     int backTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.backDistance;
-    moosalot.driveTrain.tankDrive(.5 , .5);
-    while (moosalot.driveTrain.rightDrive.getCurrentPosition() < backTarget ) {
+    moosalot.driveTrain.tankDrive(.5, .5);
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() < backTarget) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
@@ -53,12 +57,16 @@ public class AutonBlue extends LinearOpMode {
 
     //dump climbers in place
     while (moosalot.blueDebrisDumper.isDumped() == false) {
-      moosalot.blueDebrisDumper.dumpSlowly();
-      waitOneFullHardwareCycle();
-    }
-    sleep(2000);
+      if (autonFile.climberDump = true) {
+        moosalot.blueDebrisDumper.dumpSlowly();
+        waitOneFullHardwareCycle();
 
-    moosalot.blueDebrisDumper.collect();
-    sleep(2000);
+      } else {
+      }
+      sleep(2000);
+
+      moosalot.blueDebrisDumper.collect();
+      sleep(2000);
+    }
   }
 }

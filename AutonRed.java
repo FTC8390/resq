@@ -25,6 +25,8 @@ public class AutonRed extends LinearOpMode {
 
     // do autonomous stuff here
 
+    sleep(autonFile.waitTime);
+
     //drive towards rescue beacon
     moosalot.driveTrain.tankDrive(-.6, -.6);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() > autonFile.driveDistance) {
@@ -53,8 +55,13 @@ public class AutonRed extends LinearOpMode {
 
     //dump climbers in place
     while (moosalot.redDebrisDumper.isDumped() == false) {
-      moosalot.redDebrisDumper.dumpSlowly();
-      waitOneFullHardwareCycle();
+      if(autonFile.climberDump = true){
+        moosalot.redDebrisDumper.dumpSlowly();
+        waitOneFullHardwareCycle();
+      }else{
+
+      }
+
     }
     sleep(2000);
 
