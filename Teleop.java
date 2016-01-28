@@ -62,6 +62,14 @@ public class Teleop extends OpMode {
       moosalot.driveTrain.lowSpeed();    //low speed
     }
 
+    if (gamepad1.x){
+      moosalot.blueDebrisDumper.blueHighDump();
+    }
+
+    if(gamepad1.b){
+      moosalot.redDebrisDumper.redHighDump();
+    }
+
     moosalot.driveTrain.tankDrive(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
 
     /*if (gamepad2.left_bumper) {
