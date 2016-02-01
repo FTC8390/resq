@@ -19,16 +19,23 @@ public class AutonFileHandler {
   public Integer backDistance;
   public Integer waitTime;
   public boolean climberDump;
+  public Integer autonRampDistance;
+  public Integer autonRampTurn;
+  public Integer autonRampClimb;
+
 
   public void readDataFromFile(Context context) {
     // setup initial configuration parameters here
 
     // read configuration data from file
-    driveDistance = -9844;
-    turnDistance = 1432;
-    backDistance = 0;
+    driveDistance = -10564;
+    turnDistance = 1446;
+    backDistance = 334;
     waitTime = 0;
     climberDump = true;
+    autonRampDistance = 0;
+    autonRampTurn = 0;
+    autonRampClimb = 0;
     try {
       InputStream inputStream = context.openFileInput(configFileName);
 
@@ -42,16 +49,21 @@ public class AutonFileHandler {
         backDistance = Integer.valueOf(bufferedReader.readLine());
         waitTime = Integer.valueOf(bufferedReader.readLine());
         climberDump = Boolean.valueOf(bufferedReader.readLine());
-
+        autonRampDistance = Integer.valueOf(bufferedReader.readLine());
+        autonRampTurn = Integer.valueOf(bufferedReader.readLine());
+        autonRampClimb = Integer.valueOf(bufferedReader.readLine());
         inputStream.close();
       }
     } catch (Exception e) {
       // values here, for first time or in case there's a problem reading.
-      driveDistance = -9844;
-      turnDistance = 1432;
-      backDistance = 0;
+      driveDistance = -10564;
+      turnDistance = 1446;
+      backDistance = 334;
       waitTime = 0;
       climberDump = true;
+      autonRampDistance = 0;
+      autonRampTurn = 0;
+      autonRampClimb = 0;
 
     }
 
@@ -68,7 +80,9 @@ public class AutonFileHandler {
       outputStreamWriter.write(Integer.toString(backDistance) + "\n");
       outputStreamWriter.write(Integer.toString(waitTime) + "\n");
       outputStreamWriter.write(Boolean.toString(climberDump) + "\n");
-
+      outputStreamWriter.write(Integer.toString(autonRampDistance) + "\n");
+      outputStreamWriter.write(Integer.toString(autonRampTurn) + "\n");
+      outputStreamWriter.write(Integer.toString(autonRampClimb) + "\n");
       outputStreamWriter.close();
       return true;
     } catch (IOException e) {

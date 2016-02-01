@@ -34,14 +34,14 @@ public class ChurroHook {
   public void raise() {
     positionLeft = 0.66;
     servoLeft.setPosition(positionLeft);
-    positionRight = 0.332;
+    positionRight = 0.257;
     servoRight.setPosition(positionRight);
   }
 
   public void lower() {
     positionLeft = 0.332;
     servoLeft.setPosition(positionLeft);
-    positionRight = 0.66;
+    positionRight = 0.58;
     servoRight.setPosition(positionRight);
   }
 
