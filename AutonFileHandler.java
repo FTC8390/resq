@@ -33,9 +33,9 @@ public class AutonFileHandler {
     backDistance = 334;
     waitTime = 0;
     climberDump = true;
-    autonRampDistance = 0;
-    autonRampTurn = 0;
-    autonRampClimb = 0;
+    autonRampDistance = -6000;
+    autonRampTurn = 3000;
+    autonRampClimb = 6000;
     try {
       InputStream inputStream = context.openFileInput(configFileName);
 
