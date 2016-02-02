@@ -14,7 +14,6 @@ public class RobotResq {
     public Poker poker;
     public WhiskTrain whiskTrain;
     public Winch winch;
-    public ZiplineReleaser redZipLineReleaser, blueZipLineReleaser;
 
     public RobotResq() {
         churroHook = new ChurroHook();
@@ -25,8 +24,6 @@ public class RobotResq {
         poker = new Poker();
         whiskTrain = new WhiskTrain();
         winch = new Winch();
-        redZipLineReleaser = new ZiplineReleaser();
-        blueZipLineReleaser = new ZiplineReleaser();
     }
 
     public void init(HardwareMap hwMap) {
@@ -38,8 +35,6 @@ public class RobotResq {
         poker.init(hwMap);
         whiskTrain.init(hwMap);
         winch.init(hwMap);
-        redZipLineReleaser.init(hwMap, true);
-        blueZipLineReleaser.init(hwMap, false);
     }
 
     public void start() {
@@ -51,8 +46,6 @@ public class RobotResq {
         poker.start();
         whiskTrain.start();
         winch.start();
-        redZipLineReleaser.start();
-        blueZipLineReleaser.start();
     }
 
     public void raiseHookTowardMountain() {
