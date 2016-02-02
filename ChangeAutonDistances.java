@@ -14,36 +14,36 @@ public class ChangeAutonDistances extends OpMode {
 
   @Override
   public void init_loop() {
-    telemetry.addData("driveDistance", autonFile.driveDistance);
-    telemetry.addData("turnDistance", autonFile.turnDistance);
-    telemetry.addData("backDistance", autonFile.backDistance);
+    telemetry.addData("driveDistanceBeacon", autonFile.driveDistanceBeacon);
+    telemetry.addData("turnDistanceBeacon", autonFile.turnDistanceBeacon);
+    telemetry.addData("backDistanceBeacon", autonFile.backDistanceBeacon);
     telemetry.addData("waitTime", autonFile.waitTime);
     telemetry.addData("climberDump", autonFile.climberDump);
-    telemetry.addData("autonRampDistance", autonFile.autonRampDistance);
-    telemetry.addData("autonRampTurn", autonFile.autonRampTurn);
-    telemetry.addData("autonRampClimb", autonFile.autonRampClimb);
+    telemetry.addData("driveDistanceRamp", autonFile.driveDistanceRamp);
+    telemetry.addData("turnDistanceRamp", autonFile.turnDistanceRamp);
+    telemetry.addData("climbDistanceRamp", autonFile.climbDistanceRamp);
     if (gamepad1.y) {
-      autonFile.driveDistance -= 2;
+      autonFile.driveDistanceBeacon -= 2;
     }
     
     if (gamepad1.a) {
-      autonFile.driveDistance += 2;
+      autonFile.driveDistanceBeacon += 2;
     }
     
     if (gamepad1.dpad_up) {
-      autonFile.turnDistance += 2;
+      autonFile.turnDistanceBeacon += 2;
     }
     
     if (gamepad1.dpad_down) {
-      autonFile.turnDistance -= 2;
+      autonFile.turnDistanceBeacon -= 2;
     }
 
     if (gamepad1.right_bumper) {
-      autonFile.backDistance += 2;
+      autonFile.backDistanceBeacon += 2;
     }
 
     if (gamepad1.right_trigger > .75) {
-      autonFile.backDistance -= 2;
+      autonFile.backDistanceBeacon -= 2;
     }
     if ( gamepad1.left_bumper) {
       autonFile.waitTime += 4;
@@ -61,22 +61,22 @@ public class ChangeAutonDistances extends OpMode {
       autonFile.climberDump = true;
     }
     if (gamepad2.a){
-      autonFile.autonRampDistance += 2;
+      autonFile.driveDistanceRamp += 2;
     }
     if (gamepad2.y) {
-      autonFile.autonRampDistance -= 2;
+      autonFile.driveDistanceRamp -= 2;
     }
     if (gamepad2.dpad_up){
-      autonFile.autonRampTurn += 2;
+      autonFile.turnDistanceRamp += 2;
     }
     if(gamepad2.dpad_down){
-      autonFile.autonRampTurn -= 2;
+      autonFile.turnDistanceRamp -= 2;
     }
     if (gamepad2.right_bumper){
-      autonFile.autonRampClimb += 2;
+      autonFile.climbDistanceRamp += 2;
     }
     if (gamepad2.right_trigger > .75) {
-      autonFile.autonRampClimb -= 2;
+      autonFile.climbDistanceRamp -= 2;
     }
   }
 
