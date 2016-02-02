@@ -29,44 +29,30 @@ public class AutonBlueRamp extends LinearOpMode {
 
     //drive towards rescue beacon
     moosalot.driveTrain.tankDrive(-.6, -.6);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() > autonFile.driveDistance) {
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > autonFile.autonRampDistance) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
 
     // turn
-    int turnTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.turnDistance;
-    moosalot.driveTrain.tankDrive(.5, .0);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < turnTarget ) {
+    int turnTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.autonRampTurn;
+    moosalot.driveTrain.tankDrive(0, -.6);
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > turnTarget ) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
 
     // backup
-    int backTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.backDistance;
-    moosalot.driveTrain.tankDrive(.5 , .5);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < backTarget ) {
+    int backTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.autonRampClimb;
+    moosalot.driveTrain.tankDrive(-.6, -.6);
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > backTarget ) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
 
-    //dump climbers in place
-    while (moosalot.redDebrisDumper.isDumped() == false) {
-      if(autonFile.climberDump = true){
-        moosalot.redDebrisDumper.dumpSlowly();
-        waitOneFullHardwareCycle();
-      }else{
-
-      }
-
-    }
-    sleep(2000);
-
-    moosalot.redDebrisDumper.collect();
-    sleep(2000);
   }
 }
 
