@@ -45,7 +45,7 @@ public class AutonBlueRamp extends LinearOpMode {
     sleep(1000);
 
     // backup
-    int backTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.autonRampClimb;
+    int backTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.autonRampClimb;
     moosalot.driveTrain.tankDrive(-.6, -.6);
     while (moosalot.driveTrain.rightDrive.getCurrentPosition() > backTarget ) {
       waitOneFullHardwareCycle();
