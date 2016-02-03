@@ -1,10 +1,16 @@
 package ftc8390.resq;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.Gamepad;
 
 public class ChangeAutonDistances extends OpMode {
 
   AutonFileHandler autonFile;
+
+  public ChangeAutonDistances() {
+    gamepad1 = new Gamepad(); // to fix bug in 201601 SDK
+    gamepad2 = new Gamepad();
+  }
 
   @Override
   public void init() {
@@ -68,8 +74,6 @@ public class ChangeAutonDistances extends OpMode {
     if (gamepad1.b) {
       autonFile.climberDump = true;
     }
-
-
 
     if (gamepad2.a){
       autonFile.driveDistanceRamp += 2;
