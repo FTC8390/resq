@@ -61,22 +61,6 @@ public class Test extends OpMode {
         }
         telemetry.addData("A4", "g2.dpad = blue dumper");
 
-        if (gamepad1.x) {
-            moosalot.redZipLineReleaser.changePositionBy(positionUpdate);
-        }
-        if (gamepad1.a) {
-            moosalot.redZipLineReleaser.changePositionBy(-positionUpdate);
-        }
-        telemetry.addData("A5", "g1.x,a = red zipliner");
-
-        if (gamepad2.x) {
-            moosalot.blueZipLineReleaser.changePositionBy(positionUpdate);
-        }
-        if (gamepad2.a) {
-            moosalot.blueZipLineReleaser.changePositionBy(-positionUpdate);
-        }
-        telemetry.addData("A6", "g2.x,a = blue zipliner");
-
         if (gamepad1.left_bumper) {
             moosalot.churroHook.changePositionBy(positionUpdate);
         }
@@ -129,9 +113,7 @@ public class Test extends OpMode {
         telemetry.addData("M poker", moosalot.poker.motor.getCurrentPosition());
 
         telemetry.addData("S reddd", moosalot.redDebrisDumper.position);
-        telemetry.addData("S redz", moosalot.redZipLineReleaser.position);
         telemetry.addData("S bluedd", moosalot.blueDebrisDumper.position);
-        telemetry.addData("S bluez", moosalot.blueZipLineReleaser.position);
         telemetry.addData("S churroL", moosalot.churroHook.positionLeft);
         telemetry.addData("S churroR", moosalot.churroHook.positionRight);
 
