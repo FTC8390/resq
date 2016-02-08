@@ -17,7 +17,6 @@ public class AutonBlue extends LinearOpMode {
     moosalot.init(hardwareMap);
     waitOneFullHardwareCycle();
 
-
     // wait for the start button to be pressed
     waitForStart();
     moosalot.start();
@@ -30,12 +29,12 @@ public class AutonBlue extends LinearOpMode {
     sleep(autonFile.waitTime);
 
     //drive towards rescue beacon
-    moosalot.driveTrain.tankDrive(-.6, -.6);
+    moosalot.driveTrain.tankDrive(-.5, -.5);
     while (moosalot.driveTrain.rightDrive.getCurrentPosition() > autonFile.driveDistanceBeacon) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
-    sleep(1000);
+    sleep(500);
 
     // turn
     int turnTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.turnDistanceBeacon;
@@ -44,7 +43,7 @@ public class AutonBlue extends LinearOpMode {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
-    sleep(1000);
+    sleep(500);
 
     // backup
     int backTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.backDistanceBeacon;
@@ -53,20 +52,18 @@ public class AutonBlue extends LinearOpMode {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
-    sleep(1000);
+    sleep(500);
 
     //dump climbers in place
-    while (moosalot.blueDebrisDumper.isDumped() == false) {
-      if (autonFile.climberDump = true) {
+    if (autonFile.climberDump == true) {
+      while (moosalot.blueDebrisDumper.isDumped() == false) {
         moosalot.blueDebrisDumper.dumpSlowly();
         waitOneFullHardwareCycle();
-
-      } else {
       }
-      sleep(2000);
+      sleep(1000);
 
       moosalot.blueDebrisDumper.collect();
-      sleep(2000);
+      sleep(1000);
     }
   }
 }

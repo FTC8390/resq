@@ -9,7 +9,7 @@ public class AutonRed extends LinearOpMode {
   @Override
   public void runOpMode() throws InterruptedException {
     AutonFileHandler autonFile;
-    autonFile= new AutonFileHandler();
+    autonFile = new AutonFileHandler();
     autonFile.readDataFromFile(hardwareMap.appContext);
 
     moosalot = new RobotResq();
@@ -28,44 +28,42 @@ public class AutonRed extends LinearOpMode {
     sleep(autonFile.waitTime);
 
     //drive towards rescue beacon
-    moosalot.driveTrain.tankDrive(-.6, -.6);
+    moosalot.driveTrain.tankDrive(-.5, -.5);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() > autonFile.driveDistanceBeacon) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
-    sleep(1000);
+    sleep(500);
 
     // turn
     int turnTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.turnDistanceBeacon;
     moosalot.driveTrain.tankDrive(.5, .0);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < turnTarget ) {
+    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < turnTarget) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
-    sleep(1000);
+    sleep(500);
 
     // backup
     int backTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.backDistanceBeacon;
-    moosalot.driveTrain.tankDrive(.5 , .5);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < backTarget ) {
+    moosalot.driveTrain.tankDrive(.5, .5);
+    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < backTarget) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
-    sleep(1000);
+    sleep(500);
 
     //dump climbers in place
-    while (moosalot.redDebrisDumper.isDumped() == false) {
-      if(autonFile.climberDump = true){
+    if (autonFile.climberDump == true) {
+      while (moosalot.redDebrisDumper.isDumped() == false) {
         moosalot.redDebrisDumper.dumpSlowly();
         waitOneFullHardwareCycle();
-      }else{
-
       }
 
-    }
-    sleep(2000);
+      sleep(1000);
 
-    moosalot.redDebrisDumper.collect();
-    sleep(2000);
+      moosalot.redDebrisDumper.collect();
+      sleep(1000);
+    }
   }
 }
