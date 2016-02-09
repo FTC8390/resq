@@ -15,6 +15,8 @@ public class ChurroHook {
   public double positionLeft = 0.256;
   public double positionRight = 0.256;
 
+  public boolean isRaised;
+
   public void init(HardwareMap hwMap) {
     servoLeft = hwMap.servo.get("churroL");
     servoRight = hwMap.servo.get("churroR");
@@ -36,6 +38,7 @@ public class ChurroHook {
     servoLeft.setPosition(positionLeft);
     positionRight = 0.257;
     servoRight.setPosition(positionRight);
+    isRaised=true;
   }
 
   public void lower() {
@@ -43,6 +46,7 @@ public class ChurroHook {
     servoLeft.setPosition(positionLeft);
     positionRight = 0.58;
     servoRight.setPosition(positionRight);
+    isRaised=false;
   }
 
   public void prepareForRamp() {
