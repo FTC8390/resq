@@ -12,7 +12,6 @@ public class AutonBlue extends LinearOpMode {
     autonFile = new AutonFileHandler();
     autonFile.readDataFromFile(hardwareMap.appContext);
 
-
     moosalot = new RobotResq();
     moosalot.init(hardwareMap);
     waitOneFullHardwareCycle();
