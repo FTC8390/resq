@@ -56,7 +56,7 @@ public class DebrisDumper {
     servo.setPosition(position);
   }
   public void dumpSlowly() {
-    double dumpChange=0.085;
+    double dumpChange=0.008;
     if(isDumpSmall){
       changePositionBy(-dumpChange);
     }
