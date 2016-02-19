@@ -8,8 +8,8 @@ public class ChangeAutonDistances extends OpMode {
   AutonFileHandler autonFile;
 
   public ChangeAutonDistances() {
-    gamepad1 = new Gamepad(); // to fix bug in 201601 SDK
-    gamepad2 = new Gamepad();
+    //gamepad1 = new Gamepad(); // to fix bug in 201601 SDK
+    //gamepad2 = new Gamepad();
   }
 
   @Override
