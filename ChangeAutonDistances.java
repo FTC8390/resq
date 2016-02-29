@@ -32,6 +32,9 @@ public class ChangeAutonDistances extends OpMode {
     telemetry.addData("Ramp 2 turnDistance", autonFile.turnDistanceRamp);
     telemetry.addData("Ramp 3 climbDistance", autonFile.climbDistanceRamp);
 
+    telemetry.addData("driveSpeed", autonFile.driveSpeed);
+
+    //First Drive Distance
     if (gamepad1.y) {
       autonFile.driveDistanceBeacon -= 2;
     }
@@ -39,7 +42,7 @@ public class ChangeAutonDistances extends OpMode {
     if (gamepad1.a) {
       autonFile.driveDistanceBeacon += 2;
     }
-    
+    // First Turn Distance
     if (gamepad1.dpad_up) {
       autonFile.turnDistanceBeacon += 2;
     }
@@ -47,7 +50,7 @@ public class ChangeAutonDistances extends OpMode {
     if (gamepad1.dpad_down) {
       autonFile.turnDistanceBeacon -= 2;
     }
-
+    //First Back Distance
     if (gamepad1.right_bumper) {
       autonFile.backDistanceBeacon += 2;
     }
@@ -55,7 +58,7 @@ public class ChangeAutonDistances extends OpMode {
     if (gamepad1.right_trigger > .75) {
       autonFile.backDistanceBeacon -= 2;
     }
-
+    //Wait Time at the start
     if ( gamepad1.left_bumper) {
       autonFile.waitTime += 4;
     }
@@ -66,13 +69,21 @@ public class ChangeAutonDistances extends OpMode {
         autonFile.waitTime=0;
       }
     }
-
+    //First Climber Dump
     if (gamepad1.x) {
       autonFile.climberDump = false;
     }
 
     if (gamepad1.b) {
       autonFile.climberDump = true;
+    }
+
+    if (gamepad1.dpad_left) {
+      autonFile.driveSpeed -= .001;
+    }
+
+    if (gamepad1.dpad_right) {
+      autonFile.driveSpeed += .001;
     }
 
     if (gamepad2.a){

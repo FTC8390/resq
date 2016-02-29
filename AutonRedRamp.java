@@ -28,7 +28,7 @@ public class AutonRedRamp extends LinearOpMode {
     sleep(autonFile.waitTime);
 
     //drive towards rescue beacon
-    moosalot.driveTrain.tankDrive(-.6, -.6);
+    moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() > autonFile.driveDistanceRamp) {
       waitOneFullHardwareCycle();
     }
@@ -37,7 +37,7 @@ public class AutonRedRamp extends LinearOpMode {
 
     // turn
     int turnTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.turnDistanceRamp;
-    moosalot.driveTrain.tankDrive(-.6, 0);
+    moosalot.driveTrain.tankDrive(autonFile.driveSpeed, 0);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() > turnTarget ) {
       waitOneFullHardwareCycle();
     }
@@ -46,7 +46,7 @@ public class AutonRedRamp extends LinearOpMode {
 
     // backup
     int backTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.climbDistanceRamp;
-    moosalot.driveTrain.tankDrive(-.6, -.6);
+    moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() > backTarget ) {
       waitOneFullHardwareCycle();
     }

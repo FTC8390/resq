@@ -22,6 +22,7 @@ public class AutonFileHandler {
   public Integer driveDistanceRamp;
   public Integer turnDistanceRamp;
   public Integer climbDistanceRamp;
+  public Double driveSpeed;
 
 
   public void readDataFromFile(Context context) {
@@ -36,6 +37,8 @@ public class AutonFileHandler {
     driveDistanceRamp = -6000;
     turnDistanceRamp = -3000;
     climbDistanceRamp = -6000;
+    climbDistanceRamp = -6000;
+    driveSpeed = -.5;
     try {
       InputStream inputStream = context.openFileInput(configFileName);
 
@@ -52,6 +55,7 @@ public class AutonFileHandler {
         driveDistanceRamp = Integer.valueOf(bufferedReader.readLine());
         turnDistanceRamp = Integer.valueOf(bufferedReader.readLine());
         climbDistanceRamp = Integer.valueOf(bufferedReader.readLine());
+        driveSpeed = Double.valueOf(bufferedReader.readLine());
         inputStream.close();
       }
     } catch (Exception e) {
@@ -64,6 +68,7 @@ public class AutonFileHandler {
       driveDistanceRamp = -6000;
       turnDistanceRamp = -3000;
       climbDistanceRamp = -6000;
+      driveSpeed = -0.5;
 
     }
 
@@ -83,6 +88,7 @@ public class AutonFileHandler {
       outputStreamWriter.write(Integer.toString(driveDistanceRamp) + "\n");
       outputStreamWriter.write(Integer.toString(turnDistanceRamp) + "\n");
       outputStreamWriter.write(Integer.toString(climbDistanceRamp) + "\n");
+      outputStreamWriter.write(Double.toString(driveSpeed) + "\n");
       outputStreamWriter.close();
       return true;
     } catch (IOException e) {
