@@ -141,7 +141,7 @@ public class Teleop extends OpMode {
     telemetry.addData("A: timeLeft", String.format("%.2f",timeLeft) );
 
     if ((timeLeft <=60) && (timeLeft >40)) {
-      telemetry.addData("B: GO TO MOUNTAIN SOON!!");
+      telemetry.addData("B: GO TO MOUNTAIN SOON!!", 0);
     }
 
     if ((timeLeft <=40) && (timeLeft >=30)){
