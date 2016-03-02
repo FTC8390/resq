@@ -1,6 +1,7 @@
 package ftc8390.resq;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * TeleOp Mode
@@ -9,6 +10,9 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 public class Teleop extends OpMode {
 
   private RobotResq moosalot;
+
+  private ElapsedTime runTime = new ElapsedTime();
+  private Double timeLeft, runTimeDouble;
 
   @Override
   public void init() {
@@ -19,6 +23,8 @@ public class Teleop extends OpMode {
   @Override
   public void start() {
     moosalot.start();
+
+    runTime.reset();
   }
 
   /*
@@ -33,7 +39,7 @@ public class Teleop extends OpMode {
       if (moosalot.redDebrisDumper.isDumped() == false) {
         moosalot.redDebrisDumper.dumpSlowly();
       }
-    } else if (gamepad1.b){
+    } else if (gamepad1.b) {
       moosalot.redDebrisDumper.redHighDump();
     } else {
       moosalot.redDebrisDumper.collect();
@@ -45,12 +51,11 @@ public class Teleop extends OpMode {
       if (moosalot.blueDebrisDumper.isDumped() == false) {
         moosalot.blueDebrisDumper.dumpSlowly();
       }
-    } else if (gamepad1.x){
+    } else if (gamepad1.x) {
       moosalot.blueDebrisDumper.blueHighDump();
     } else {
       moosalot.blueDebrisDumper.collect();
     }
-
 
 
     if (gamepad1.y) {
@@ -128,5 +133,13 @@ public class Teleop extends OpMode {
     } else {
       moosalot.whiskTrain.stop();
     }
+    runTimeDouble = runTime.time();
+    timeLeft = 120 - runTimeDouble;
+    if (timeLeft <= 0)
+      timeLeft = 0.0;
+
+    telemetry.addData("timeLeft", timeLeft);
+
   }
+
 }
