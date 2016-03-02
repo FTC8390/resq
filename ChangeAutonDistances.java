@@ -32,7 +32,7 @@ public class ChangeAutonDistances extends OpMode {
     telemetry.addData("Ramp 2 turnDistance", autonFile.turnDistanceRamp);
     telemetry.addData("Ramp 3 climbDistance", autonFile.climbDistanceRamp);
 
-    telemetry.addData("driveSpeed", autonFile.driveSpeed);
+    telemetry.addData("A driveSpeed", autonFile.driveSpeed);
 
     //First Drive Distance
     if (gamepad1.y) {
