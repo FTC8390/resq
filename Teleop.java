@@ -34,6 +34,24 @@ public class Teleop extends OpMode {
   @Override
   public void loop() {
 
+    runTimeDouble = runTime.time();
+    timeLeft = 120.5 - runTimeDouble;
+    if (timeLeft <= 0)
+      timeLeft = 0.0;
+
+    telemetry.clearData();
+    telemetry.addData("A: Time Left", String.format("%.2f", timeLeft));
+
+    if ((timeLeft <= 60) && (timeLeft > 40)) {
+      telemetry.addData("B1: GO TO MOUNTAIN SOON!!", 0);
+      telemetry.addData("B2: PUT POKER OUT!!", 0);
+    }
+
+    if ((timeLeft <= 40) && (timeLeft >= 30)) {
+      telemetry.addData("C: END GAME IN", String.format("%.2f", timeLeft - 30));
+    }
+
+
     if (gamepad2.b) {
       //moosalot.redDebrisDumper.dump();
       if (moosalot.redDebrisDumper.isDumped() == false) {
@@ -78,7 +96,7 @@ public class Teleop extends OpMode {
     if (moosalot.churroHook.isRaised) {
       moosalot.driveTrain.tankDrive(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
     } else {
-      moosalot.driveTrain.tankDriveWithoutBreakingChurros(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
+      moosalot.driveTrain.tankDriveBackwardsOnly(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
     }
 
     if (gamepad2.left_bumper) {
@@ -89,7 +107,6 @@ public class Teleop extends OpMode {
     } else {
       moosalot.stopHook();
     }*/
-
     else {
       if (gamepad2.left_stick_y < -0.75) {
         moosalot.poker.pokeOut();
@@ -133,21 +150,6 @@ public class Teleop extends OpMode {
     } else {
       moosalot.whiskTrain.stop();
     }
-    runTimeDouble = runTime.time();
-    timeLeft = 120 - runTimeDouble;
-    if (timeLeft <= 0)
-      timeLeft = 0.0;
-
-    telemetry.addData("A: timeLeft", String.format("%.2f",timeLeft) );
-
-    if ((timeLeft <=60) && (timeLeft >40)) {
-      telemetry.addData("B: GO TO MOUNTAIN SOON!!", 0);
-    }
-
-    if ((timeLeft <=40) && (timeLeft >=30)){
-      telemetry.addData ("C: END GAME IN", String.format("%.2f",timeLeft - 30));
-    }
-
 
   }
 
