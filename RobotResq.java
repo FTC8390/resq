@@ -48,6 +48,14 @@ public class RobotResq {
         winch.start();
     }
 
+    public void stop() {
+        driveTrain.stop();
+        lift.stop();
+        poker.stop();
+        whiskTrain.stop();
+        winch.stop();
+    }
+
     public void raiseHookTowardMountain() {
         if (poker.isByRobot() == true) {
             lift.stop();
