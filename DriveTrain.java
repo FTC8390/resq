@@ -60,24 +60,24 @@ public class DriveTrain {
     }
   }
 
-  public void tankDriveWithoutBreakingChurros(double left, double right) {
+  public void tankDriveBackwardsOnly(double left, double right) {
     double leftSpeed, rightSpeed;
 
     if (isFacingForward == true) {
-      leftSpeed=left*speed;
-      rightSpeed=right*speed;
+      leftSpeed = left * speed;
+      rightSpeed = right * speed;
 
     } else {
-      leftSpeed= -right*speed;
-      rightSpeed= -left*speed;
+      leftSpeed = -right * speed;
+      rightSpeed = -left * speed;
     }
 
-    // don't go forward, so churros don't get broken
-    if (leftSpeed>0) {
-      leftSpeed=0;
+    // don't go forward
+    if (leftSpeed > 0) {
+      leftSpeed = 0;
     }
-    if (rightSpeed>0) {
-      rightSpeed=0;
+    if (rightSpeed > 0) {
+      rightSpeed = 0;
     }
 
     leftDrive.setPower(leftSpeed);
