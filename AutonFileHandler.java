@@ -31,7 +31,7 @@ public class AutonFileHandler {
     // read configuration data from file
     driveDistanceBeacon = -10564;
     turnDistanceBeacon = 1446;
-    backDistanceBeacon = 334;
+    backDistanceBeacon = 750;
     waitTime = 0;
     climberDump = true;
     driveDistanceRamp = -6000;
@@ -62,7 +62,7 @@ public class AutonFileHandler {
       // values here, for first time or in case there's a problem reading.
       driveDistanceBeacon = -10564;
       turnDistanceBeacon = 1446;
-      backDistanceBeacon = 334;
+      backDistanceBeacon = 750;
       waitTime = 0;
       climberDump = true;
       driveDistanceRamp = -6000;
