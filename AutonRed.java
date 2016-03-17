@@ -22,6 +22,8 @@ public class AutonRed extends LinearOpMode {
 
     moosalot.driveTrain.setModeToRunUsingEncoders();
     waitOneFullHardwareCycle();
+    moosalot.driveTrain.setModeToRunUsingEncoders();
+    waitOneFullHardwareCycle();
 
     // do autonomous stuff here
 
@@ -30,8 +32,11 @@ public class AutonRed extends LinearOpMode {
     //drive towards rescue beacon
     moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() > autonFile.driveDistanceBeacon) {
+      moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed);
       waitOneFullHardwareCycle();
     }
+    moosalot.driveTrain.tankDrive(0, 0);
+    waitOneFullHardwareCycle();
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(500);
 
@@ -39,8 +44,11 @@ public class AutonRed extends LinearOpMode {
     int turnTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.turnDistanceBeacon;
     moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, .0);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() < turnTarget) {
+      moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, .0);
       waitOneFullHardwareCycle();
     }
+    moosalot.driveTrain.tankDrive(0, 0);
+    waitOneFullHardwareCycle();
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(500);
 
@@ -48,8 +56,11 @@ public class AutonRed extends LinearOpMode {
     int backTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.backDistanceBeacon;
     moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, -autonFile.driveSpeed);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() < backTarget) {
+      moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, -autonFile.driveSpeed);
       waitOneFullHardwareCycle();
     }
+    moosalot.driveTrain.tankDrive(0, 0);
+    waitOneFullHardwareCycle();
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(500);
 
@@ -59,7 +70,6 @@ public class AutonRed extends LinearOpMode {
         moosalot.redDebrisDumper.dumpSlowly();
         waitOneFullHardwareCycle();
       }
-
       sleep(1000);
 
       moosalot.redDebrisDumper.collect();
