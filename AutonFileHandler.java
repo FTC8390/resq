@@ -34,10 +34,9 @@ public class AutonFileHandler {
     backDistanceBeacon = 750;
     waitTime = 0;
     climberDump = true;
-    driveDistanceRamp = -6000;
-    turnDistanceRamp = -3000;
-    climbDistanceRamp = -6000;
-    climbDistanceRamp = -6000;
+    driveDistanceRamp = -10000;
+    turnDistanceRamp = -1500;
+    climbDistanceRamp = -3000;
     driveSpeed = -.5;
     try {
       InputStream inputStream = context.openFileInput(configFileName);
@@ -65,9 +64,9 @@ public class AutonFileHandler {
       backDistanceBeacon = 750;
       waitTime = 0;
       climberDump = true;
-      driveDistanceRamp = -6000;
-      turnDistanceRamp = -3000;
-      climbDistanceRamp = -6000;
+      driveDistanceRamp = -10000;
+      turnDistanceRamp = -1500;
+      climbDistanceRamp = -3000;
       driveSpeed = -0.5;
 
     }
