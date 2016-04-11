@@ -68,7 +68,7 @@ public class Teleop extends OpMode {
           moosalot.redDebrisDumper.dumpSlowly();
         }
       } else if (gamepad1.b) {
-        moosalot.redDebrisDumper.redHighDump();
+        moosalot.redDebrisDumper.highDump();
       } else {
         moosalot.redDebrisDumper.collect();
       }
@@ -80,7 +80,7 @@ public class Teleop extends OpMode {
           moosalot.blueDebrisDumper.dumpSlowly();
         }
       } else if (gamepad1.x) {
-        moosalot.blueDebrisDumper.blueHighDump();
+        moosalot.blueDebrisDumper.highDump();
       } else {
         moosalot.blueDebrisDumper.collect();
       }

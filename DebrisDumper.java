@@ -14,18 +14,20 @@ public class DebrisDumper {
 
   double position=0.5;
 
-  double dumpValue, collectValue;
+  double dumpValue, collectValue, highDumpValue;
 
   public void init(HardwareMap hwMap, boolean isRedIn) {
     isRed = isRedIn;
     if (isRed) {
       servo = hwMap.servo.get("reddd");
       dumpValue = 0.062;
+      highDumpValue = .277;
       isDumpSmall=true;
       collectValue = 0.88;
     } else {
       servo = hwMap.servo.get("bluedd");
       dumpValue = 0.928;
+      highDumpValue = .713;
       isDumpSmall=false;
       collectValue = 0.094;
     }
@@ -42,12 +44,8 @@ public class DebrisDumper {
     servo.setPosition(position);
   }
 
-  public void blueHighDump(){
-    position = .713;
-    servo.setPosition(position);
-  }
-  public void redHighDump(){
-    position = .277;
+  public void highDump(){
+    position = highDumpValue;
     servo.setPosition(position);
   }
 
