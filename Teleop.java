@@ -135,7 +135,7 @@ public class Teleop extends OpMode {
         }
       }
 
-      if (gamepad2.y || (gamepad1.right_bumper && (timeLeft < 30.0))) {
+      if (gamepad2.y || gamepad1.right_bumper) {
         moosalot.winch.wind();
       } else {
         moosalot.winch.stop();
