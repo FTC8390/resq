@@ -9,7 +9,7 @@ public class AutonBlueRamp extends LinearOpMode {
   @Override
   public void runOpMode() throws InterruptedException {
     AutonFileHandler autonFile;
-    autonFile= new AutonFileHandler();
+    autonFile = new AutonFileHandler();
     autonFile.readDataFromFile(hardwareMap.appContext);
 
     moosalot = new RobotResq();
@@ -29,25 +29,25 @@ public class AutonBlueRamp extends LinearOpMode {
 
     //drive towards rescue beacon
     moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed);
-    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > autonFile.driveDistanceRamp) {
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > autonFile.driveDistanceClose) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
 
     // turn
-    int turnTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.turnDistanceRamp;
+    int turnTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.turnDistanceClose;
     moosalot.driveTrain.tankDrive(0, autonFile.driveSpeed);
-    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > turnTarget ) {
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > turnTarget) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(1000);
 
     // backup
-    int backTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.climbDistanceRamp;
+    int backTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() + autonFile.backDistanceClose;
     moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed);
-    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > backTarget ) {
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > backTarget) {
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);

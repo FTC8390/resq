@@ -2,7 +2,7 @@ package ftc8390.resq;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-public class AutonRed extends LinearOpMode {
+public class AutonRedForward extends LinearOpMode {
 
   private RobotResq moosalot;
 
@@ -20,6 +20,8 @@ public class AutonRed extends LinearOpMode {
     waitForStart();
     moosalot.start();
 
+    double straighten = 1.01;
+
     moosalot.driveTrain.setModeToRunUsingEncoders();
     waitOneFullHardwareCycle();
     moosalot.driveTrain.setModeToRunUsingEncoders();
@@ -29,10 +31,29 @@ public class AutonRed extends LinearOpMode {
 
     sleep(autonFile.waitTime);
 
-    //drive towards rescue beacon
-    moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() > autonFile.driveDistanceFar) {
-      moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed);
+    // drive forward and whisk out
+
+    moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, -autonFile.driveSpeed * straighten);
+    moosalot.whiskTrain.pushOutDebris();
+    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < -autonFile.driveDistanceFar) {
+      moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, -autonFile.driveSpeed * straighten);
+      moosalot.whiskTrain.pushOutDebris();
+      waitOneFullHardwareCycle();
+    }
+    moosalot.driveTrain.tankDrive(0, 0);
+    moosalot.whiskTrain.stop();
+    waitOneFullHardwareCycle();
+    moosalot.driveTrain.tankDrive(0, 0);
+    moosalot.whiskTrain.stop();
+    sleep(500);
+
+
+    // turn 135 degrees
+
+    int turnTarget = moosalot.driveTrain.rightDrive.getCurrentPosition() - 3 * autonFile.turnDistanceFar;
+    moosalot.driveTrain.tankDrive(0, autonFile.driveSpeed);
+    while (moosalot.driveTrain.rightDrive.getCurrentPosition() > turnTarget) {
+      moosalot.driveTrain.tankDrive(0, autonFile.driveSpeed);
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
@@ -40,11 +61,12 @@ public class AutonRed extends LinearOpMode {
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(500);
 
-    // turn
-    int turnTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.turnDistanceFar;
-    moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, .0);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < turnTarget) {
-      moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, .0);
+    // move forward (later put in light sensor check?)
+
+    int forwardTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() - autonFile.backDistanceFar;
+    moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed * straighten);
+    while (moosalot.driveTrain.leftDrive.getCurrentPosition() > forwardTarget) {
+      moosalot.driveTrain.tankDrive(autonFile.driveSpeed, autonFile.driveSpeed * straighten);
       waitOneFullHardwareCycle();
     }
     moosalot.driveTrain.tankDrive(0, 0);
@@ -52,19 +74,7 @@ public class AutonRed extends LinearOpMode {
     moosalot.driveTrain.tankDrive(0, 0);
     sleep(500);
 
-    // backup
-    int backTarget = moosalot.driveTrain.leftDrive.getCurrentPosition() + autonFile.backDistanceFar;
-    moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, -autonFile.driveSpeed);
-    while (moosalot.driveTrain.leftDrive.getCurrentPosition() < backTarget) {
-      moosalot.driveTrain.tankDrive(-autonFile.driveSpeed, -autonFile.driveSpeed);
-      waitOneFullHardwareCycle();
-    }
-    moosalot.driveTrain.tankDrive(0, 0);
-    waitOneFullHardwareCycle();
-    moosalot.driveTrain.tankDrive(0, 0);
-    sleep(500);
-
-    //dump climbers in place
+    // dump
     if (autonFile.climberDump == true) {
       while (moosalot.redDebrisDumper.isDumped() == false) {
         moosalot.redDebrisDumper.dumpSlowly();
@@ -75,5 +85,7 @@ public class AutonRed extends LinearOpMode {
       moosalot.redDebrisDumper.collect();
       sleep(1000);
     }
+
+
   }
 }

@@ -9,8 +9,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  */
 public class Teleop extends OpMode {
 
-  private RobotResq moosalot;
   Boolean stopAtEndOfMatch;
+  private RobotResq moosalot;
   private ElapsedTime runTime = new ElapsedTime();
   private Double timeLeft, runTimeDouble;
 
@@ -55,11 +55,11 @@ public class Teleop extends OpMode {
       telemetry.addData("C: END OF MATCH IN", String.format("%.2f", timeLeft));
     }
 
-    if((gamepad1.back)&& (gamepad2.back)){
+    if ((gamepad1.back) && (gamepad2.back)) {
       stopAtEndOfMatch = false;
     }
 
-    if ((timeLeft == 0)&&(stopAtEndOfMatch)) {
+    if ((timeLeft == 0) && (stopAtEndOfMatch)) {
       moosalot.stop();
     } else {
       if (gamepad2.b) {
@@ -135,7 +135,7 @@ public class Teleop extends OpMode {
         }
       }
 
-      if (gamepad2.y || (gamepad1.right_bumper &&(timeLeft<30.0))) {
+      if (gamepad2.y || (gamepad1.right_bumper && (timeLeft < 30.0))) {
         moosalot.winch.wind();
       } else {
         moosalot.winch.stop();

@@ -38,7 +38,7 @@ public class ChurroHook {
     servoLeft.setPosition(positionLeft);
     positionRight = 0.257;
     servoRight.setPosition(positionRight);
-    isRaised=true;
+    isRaised = true;
   }
 
   public void lower() {
@@ -46,7 +46,7 @@ public class ChurroHook {
     servoLeft.setPosition(positionLeft);
     positionRight = 0.58;
     servoRight.setPosition(positionRight);
-    isRaised=false;
+    isRaised = false;
   }
 
   public void prepareForRamp() {

@@ -23,6 +23,7 @@ public class WhiskTrain {
   public void runAtPower(double power) {
     motor.setPower(Range.clip(power, -1, 1));
   }
+
   public void stop() {
     motor.setPower(0);
   }

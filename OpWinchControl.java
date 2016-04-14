@@ -34,11 +34,9 @@ public class OpWinchControl extends OpMode {
 
     if (gamepad1.y || gamepad2.y) {
       moosalot.winch.windUpMountain();
-    }
-    else if(gamepad1.a || gamepad2.a){
+    } else if (gamepad1.a || gamepad2.a) {
       moosalot.winch.unwind();
-    }
-    else {
+    } else {
       moosalot.winch.stop();
     }
 

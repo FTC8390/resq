@@ -1,7 +1,6 @@
 package ftc8390.resq;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.Gamepad;
 
 public class ChangeAutonDistances extends OpMode {
 
@@ -22,51 +21,51 @@ public class ChangeAutonDistances extends OpMode {
   public void init_loop() {
 
     telemetry.addData("A delay start by", autonFile.waitTime);
-
-    telemetry.addData("Beacon 1 driveDistance", autonFile.driveDistanceBeacon);
-    telemetry.addData("Beacon 2 turnDistance", autonFile.turnDistanceBeacon);
-    telemetry.addData("Beacon 3 backDistance", autonFile.backDistanceBeacon);
-    telemetry.addData("Beacon 4 climberDump", autonFile.climberDump);
-
-    telemetry.addData("Ramp 1 driveDistance", autonFile.driveDistanceRamp);
-    telemetry.addData("Ramp 2 turnDistance", autonFile.turnDistanceRamp);
-    telemetry.addData("Ramp 3 climbDistance", autonFile.climbDistanceRamp);
-
     telemetry.addData("A driveSpeed", autonFile.driveSpeed);
+    telemetry.addData("B climberDump", autonFile.climberDump);
+
+    telemetry.addData("Close 1 driveDistance", autonFile.driveDistanceClose);
+    telemetry.addData("Close 2 turnDistance", autonFile.turnDistanceClose);
+    telemetry.addData("Close 3 backDistance", autonFile.backDistanceClose);
+
+    telemetry.addData("Far 1 driveDistance", autonFile.driveDistanceFar);
+    telemetry.addData("Far 2 turnDistance", autonFile.turnDistanceFar);
+    telemetry.addData("Far 3 backDistance", autonFile.backDistanceFar);
+
 
     //First Drive Distance
     if (gamepad1.y) {
-      autonFile.driveDistanceBeacon -= 2;
+      autonFile.driveDistanceFar -= 2;
     }
-    
+
     if (gamepad1.a) {
-      autonFile.driveDistanceBeacon += 2;
+      autonFile.driveDistanceFar += 2;
     }
     // First Turn Distance
     if (gamepad1.dpad_up) {
-      autonFile.turnDistanceBeacon += 2;
+      autonFile.turnDistanceFar += 2;
     }
-    
+
     if (gamepad1.dpad_down) {
-      autonFile.turnDistanceBeacon -= 2;
+      autonFile.turnDistanceFar -= 2;
     }
     //First Back Distance
     if (gamepad1.right_bumper) {
-      autonFile.backDistanceBeacon += 2;
+      autonFile.backDistanceFar += 2;
     }
 
     if (gamepad1.right_trigger > .75) {
-      autonFile.backDistanceBeacon -= 2;
+      autonFile.backDistanceFar -= 2;
     }
     //Wait Time at the start
-    if ( gamepad1.left_bumper) {
+    if (gamepad1.left_bumper) {
       autonFile.waitTime += 4;
     }
 
     if (gamepad1.left_trigger > .75) {
       autonFile.waitTime -= 4;
-      if (autonFile.waitTime<0) {
-        autonFile.waitTime=0;
+      if (autonFile.waitTime < 0) {
+        autonFile.waitTime = 0;
       }
     }
     //First Climber Dump
@@ -86,25 +85,25 @@ public class ChangeAutonDistances extends OpMode {
       autonFile.driveSpeed += .001;
     }
 
-    if (gamepad2.a){
-      autonFile.driveDistanceRamp += 2;
+    if (gamepad2.a) {
+      autonFile.driveDistanceClose += 2;
     }
     if (gamepad2.y) {
-      autonFile.driveDistanceRamp -= 2;
+      autonFile.driveDistanceClose -= 2;
     }
 
-    if (gamepad2.dpad_up){
-      autonFile.turnDistanceRamp += 2;
+    if (gamepad2.dpad_up) {
+      autonFile.turnDistanceClose += 2;
     }
-    if(gamepad2.dpad_down){
-      autonFile.turnDistanceRamp -= 2;
+    if (gamepad2.dpad_down) {
+      autonFile.turnDistanceClose -= 2;
     }
 
-    if (gamepad2.right_bumper){
-      autonFile.climbDistanceRamp += 2;
+    if (gamepad2.right_bumper) {
+      autonFile.backDistanceClose += 2;
     }
     if (gamepad2.right_trigger > .75) {
-      autonFile.climbDistanceRamp -= 2;
+      autonFile.backDistanceClose -= 2;
     }
 
   }

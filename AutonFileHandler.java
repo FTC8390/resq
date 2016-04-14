@@ -10,33 +10,31 @@ import java.io.OutputStreamWriter;
 
 public class AutonFileHandler {
 
-  // variables used during the configuration process
-  private String configFileName = "AutonInfo.txt";
-
   // all data here
-  public Integer driveDistanceBeacon;
-  public Integer turnDistanceBeacon;
-  public Integer backDistanceBeacon;
+  public Integer driveDistanceFar;
+  public Integer turnDistanceFar;
+  public Integer backDistanceFar;
   public Integer waitTime;
   public boolean climberDump;
-  public Integer driveDistanceRamp;
-  public Integer turnDistanceRamp;
-  public Integer climbDistanceRamp;
+  public Integer driveDistanceClose;
+  public Integer turnDistanceClose;
+  public Integer backDistanceClose;
   public Double driveSpeed;
-
+  // variables used during the configuration process
+  private String configFileName = "AutonInfo.txt";
 
   public void readDataFromFile(Context context) {
     // setup initial configuration parameters here
 
     // read configuration data from file
-    driveDistanceBeacon = -10564;
-    turnDistanceBeacon = 1446;
-    backDistanceBeacon = 750;
+    driveDistanceFar = -10564;
+    turnDistanceFar = 1446;
+    backDistanceFar = 750;
     waitTime = 0;
     climberDump = true;
-    driveDistanceRamp = -10000;
-    turnDistanceRamp = -1500;
-    climbDistanceRamp = -3000;
+    driveDistanceClose = -10000;
+    turnDistanceClose = -1500;
+    backDistanceClose = -3000;
     driveSpeed = -.5;
     try {
       InputStream inputStream = context.openFileInput(configFileName);
@@ -46,27 +44,27 @@ public class AutonFileHandler {
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
         // read data here
-        driveDistanceBeacon = Integer.valueOf(bufferedReader.readLine());
-        turnDistanceBeacon = Integer.valueOf(bufferedReader.readLine());
-        backDistanceBeacon = Integer.valueOf(bufferedReader.readLine());
+        driveDistanceFar = Integer.valueOf(bufferedReader.readLine());
+        turnDistanceFar = Integer.valueOf(bufferedReader.readLine());
+        backDistanceFar = Integer.valueOf(bufferedReader.readLine());
         waitTime = Integer.valueOf(bufferedReader.readLine());
         climberDump = Boolean.valueOf(bufferedReader.readLine());
-        driveDistanceRamp = Integer.valueOf(bufferedReader.readLine());
-        turnDistanceRamp = Integer.valueOf(bufferedReader.readLine());
-        climbDistanceRamp = Integer.valueOf(bufferedReader.readLine());
+        driveDistanceClose = Integer.valueOf(bufferedReader.readLine());
+        turnDistanceClose = Integer.valueOf(bufferedReader.readLine());
+        backDistanceClose = Integer.valueOf(bufferedReader.readLine());
         driveSpeed = Double.valueOf(bufferedReader.readLine());
         inputStream.close();
       }
     } catch (Exception e) {
       // values here, for first time or in case there's a problem reading.
-      driveDistanceBeacon = -10564;
-      turnDistanceBeacon = 1446;
-      backDistanceBeacon = 750;
+      driveDistanceFar = -10564;
+      turnDistanceFar = 1446;
+      backDistanceFar = 750;
       waitTime = 0;
       climberDump = true;
-      driveDistanceRamp = -10000;
-      turnDistanceRamp = -1500;
-      climbDistanceRamp = -3000;
+      driveDistanceClose = -10000;
+      turnDistanceClose = -1500;
+      backDistanceClose = -3000;
       driveSpeed = -0.5;
 
     }
@@ -79,14 +77,14 @@ public class AutonFileHandler {
       OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(configFileName, Context.MODE_PRIVATE));
 
       // write data here, as a string on its own line. "\n" puts a new line at the end of the write, like hitting "enter"
-      outputStreamWriter.write(Integer.toString(driveDistanceBeacon) + "\n");
-      outputStreamWriter.write(Integer.toString(turnDistanceBeacon) + "\n");
-      outputStreamWriter.write(Integer.toString(backDistanceBeacon) + "\n");
+      outputStreamWriter.write(Integer.toString(driveDistanceFar) + "\n");
+      outputStreamWriter.write(Integer.toString(turnDistanceFar) + "\n");
+      outputStreamWriter.write(Integer.toString(backDistanceFar) + "\n");
       outputStreamWriter.write(Integer.toString(waitTime) + "\n");
       outputStreamWriter.write(Boolean.toString(climberDump) + "\n");
-      outputStreamWriter.write(Integer.toString(driveDistanceRamp) + "\n");
-      outputStreamWriter.write(Integer.toString(turnDistanceRamp) + "\n");
-      outputStreamWriter.write(Integer.toString(climbDistanceRamp) + "\n");
+      outputStreamWriter.write(Integer.toString(driveDistanceClose) + "\n");
+      outputStreamWriter.write(Integer.toString(turnDistanceClose) + "\n");
+      outputStreamWriter.write(Integer.toString(backDistanceClose) + "\n");
       outputStreamWriter.write(Double.toString(driveSpeed) + "\n");
       outputStreamWriter.close();
       return true;
