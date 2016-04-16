@@ -27,10 +27,10 @@ public class FtcOpModeRegister implements OpModeRegister {
 
     manager.register("Teleop", Teleop.class);
     //manager.register("Auton1", Auton1.class);
-    manager.register("AutonCloseRed", AutonRedRamp.class);
-    manager.register("AutonCloseBlue", AutonBlueRamp.class);
-    manager.register("AutonFarRed", AutonRed.class);
-    manager.register("AutonFarBlue", AutonBlue.class);
+    manager.register("AutonCloseRed", AutonCloseRed.class);
+    manager.register("AutonCloseBlue", AutonCloseBlue.class);
+    manager.register("AutonFarRed", AutonFarRed.class);
+    manager.register("AutonFarBlue", AutonFarBlue.class);
 
 /*
     manager.register("AutonRed", AutonRed.class);

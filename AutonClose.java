@@ -10,14 +10,11 @@ public abstract class AutonClose extends ResqLinearOpMode {
     autonFile = new AutonFileHandler();
     autonFile.readDataFromFile(hardwareMap.appContext);
 
-    moosalot = new RobotResq();
-    moosalot.init(hardwareMap);
-    waitOneFullHardwareCycle();
+    initialize();
 
     // wait for the start button to be pressed
     waitForStart();
     moosalot.start();
-
 
     moosalot.driveTrain.setModeToRunUsingEncoders();
     waitOneFullHardwareCycle();
@@ -38,9 +35,9 @@ public abstract class AutonClose extends ResqLinearOpMode {
 
 
     if (autonIsRed) {
-      turnCWUsingBothMotorsAtSpeedForEncoderCounts(autonFile.driveSpeed, autonFile.turnDistanceClose);
+      turnCWUsingBothMotorsAtSpeedForEncoderCounts(.7, autonFile.turnDistanceClose);
     } else {
-      turnCCWUsingBothMotorsAtSpeedForEncoderCounts(autonFile.driveSpeed, autonFile.turnDistanceClose);
+      turnCCWUsingBothMotorsAtSpeedForEncoderCounts(.7, autonFile.turnDistanceClose);
     }
     stopDriving();
     sleep(500);
@@ -66,6 +63,9 @@ public abstract class AutonClose extends ResqLinearOpMode {
       autonDumper.collect();
       sleep(1000);
     }
+
+    driveForwardAtSpeedForEncoderCounts(autonFile.driveSpeed, autonFile.backDistanceClose);
+    stopDriving();
 
   }
 }

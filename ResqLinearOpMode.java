@@ -7,10 +7,17 @@ public abstract class ResqLinearOpMode extends LinearOpMode {
   public RobotResq moosalot;
   public double straighten = 1.01;
 
+  public void initialize() throws InterruptedException{
+    moosalot = new RobotResq();
+    moosalot.init(hardwareMap);
+    waitOneFullHardwareCycle();
+    straighten = 1.01;
+  }
+
   public void driveForwardAtSpeedForEncoderCounts(double speed, int encoderCounts) throws InterruptedException {
 
     int target = moosalot.driveTrain.leftDrive.getCurrentPosition() + encoderCounts;
-
+    double straighten = 1.01;
     moosalot.driveTrain.tankDrive(speed, speed * straighten);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() < target) {
       moosalot.driveTrain.tankDrive(speed, speed * straighten);
@@ -83,7 +90,7 @@ public abstract class ResqLinearOpMode extends LinearOpMode {
   public void driveBackwardAtSpeedForEncoderCounts(double speed, int encoderCounts) throws InterruptedException {
 
     int target = moosalot.driveTrain.leftDrive.getCurrentPosition() - encoderCounts;
-
+    double straighten = 1.01;
     moosalot.driveTrain.tankDrive(-speed, -speed * straighten);
     while (moosalot.driveTrain.leftDrive.getCurrentPosition() > target) {
       moosalot.driveTrain.tankDrive(-speed, -speed * straighten);

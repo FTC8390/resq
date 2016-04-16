@@ -23,19 +23,23 @@ public class AutonFileHandler {
   // variables used during the configuration process
   private String configFileName = "AutonInfo.txt";
 
-  public void readDataFromFile(Context context) {
-    // setup initial configuration parameters here
-
-    // read configuration data from file
-    driveDistanceFar = 10564;
-    turnDistanceFar = 1446;
-    backDistanceFar = 750;
+  private void initializeValues() {
+    driveDistanceFar = 14564;
+    turnDistanceFar = 6000;
+    backDistanceFar = 0;
     waitTime = 0;
     climberDump = true;
-    driveDistanceClose = 10000;
-    turnDistanceClose = 1500;
-    backDistanceClose = 3000;
+    driveDistanceClose = 9000;
+    turnDistanceClose = 8000;
+    backDistanceClose = 800;
     driveSpeed = .35;
+  }
+
+  public void readDataFromFile(Context context) {
+    // setup initial configuration parameters here
+    initializeValues();
+
+    // read configuration data from file
     try {
       InputStream inputStream = context.openFileInput(configFileName);
 
@@ -57,16 +61,7 @@ public class AutonFileHandler {
       }
     } catch (Exception e) {
       // values here, for first time or in case there's a problem reading.
-      driveDistanceFar = 10564;
-      turnDistanceFar = 1446;
-      backDistanceFar = 750;
-      waitTime = 0;
-      climberDump = true;
-      driveDistanceClose = 10000;
-      turnDistanceClose = 1500;
-      backDistanceClose = 3000;
-      driveSpeed = 0.35;
-
+      initializeValues();
     }
 
   }

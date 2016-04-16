@@ -35,11 +35,11 @@ public class ChangeAutonDistances extends OpMode {
 
     //First Drive Distance
     if (gamepad1.y) {
-      autonFile.driveDistanceFar -= 2;
+      autonFile.driveDistanceFar += 2;
     }
 
     if (gamepad1.a) {
-      autonFile.driveDistanceFar += 2;
+      autonFile.driveDistanceFar -= 2;
     }
     // First Turn Distance
     if (gamepad1.dpad_up) {
@@ -86,10 +86,10 @@ public class ChangeAutonDistances extends OpMode {
     }
 
     if (gamepad2.a) {
-      autonFile.driveDistanceClose += 2;
+      autonFile.driveDistanceClose -= 2;
     }
     if (gamepad2.y) {
-      autonFile.driveDistanceClose -= 2;
+      autonFile.driveDistanceClose += 2;
     }
 
     if (gamepad2.dpad_up) {

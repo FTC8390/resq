@@ -10,14 +10,11 @@ public abstract class AutonFar extends ResqLinearOpMode {
     autonFile = new AutonFileHandler();
     autonFile.readDataFromFile(hardwareMap.appContext);
 
-    moosalot = new RobotResq();
-    moosalot.init(hardwareMap);
-    waitOneFullHardwareCycle();
+    initialize();
 
     // wait for the start button to be pressed
     waitForStart();
     moosalot.start();
-
 
     moosalot.driveTrain.setModeToRunUsingEncoders();
     waitOneFullHardwareCycle();
@@ -25,7 +22,6 @@ public abstract class AutonFar extends ResqLinearOpMode {
     waitOneFullHardwareCycle();
 
     // do autonomous stuff here
-
     sleep(autonFile.waitTime);
 
     // drive forward and whisk out
@@ -33,19 +29,16 @@ public abstract class AutonFar extends ResqLinearOpMode {
     driveForwardAtSpeedForEncoderCounts(autonFile.driveSpeed, autonFile.driveDistanceFar);
     stopDriving();
     moosalot.whiskTrain.stop();
-
     sleep(500);
 
-
-    // turn 135 degrees
+    // turn
     if (autonIsRed) {
-      turnBackwardUsingRightMotorsAtSpeedForEncoderCounts(autonFile.driveSpeed, 3 * autonFile.turnDistanceFar);
+      turnBackwardUsingRightMotorsAtSpeedForEncoderCounts(.7, autonFile.turnDistanceFar);
     } else {
-      turnBackwardUsingLeftMotorsAtSpeedForEncoderCounts(autonFile.driveSpeed, 3 * autonFile.turnDistanceFar);
+      turnBackwardUsingLeftMotorsAtSpeedForEncoderCounts(.7, autonFile.turnDistanceFar);
     }
     stopDriving();
     sleep(500);
-
 
     // dump
     if (autonIsRed) {
