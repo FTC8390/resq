@@ -15,7 +15,6 @@ public abstract class ResqLinearOpMode extends LinearOpMode {
   }
 
   public void driveForwardAtSpeedForEncoderCounts(double speed, int encoderCounts) throws InterruptedException {
-
     int target = moosalot.driveTrain.leftDrive.getCurrentPosition() + encoderCounts;
     double straighten = 1.01;
     moosalot.driveTrain.tankDrive(speed, speed * straighten);
@@ -23,7 +22,6 @@ public abstract class ResqLinearOpMode extends LinearOpMode {
       moosalot.driveTrain.tankDrive(speed, speed * straighten);
       waitOneFullHardwareCycle();
     }
-
   }
 
   public void turnForwardUsingLeftMotorsAtSpeedForEncoderCounts(double speed, int encoderCounts) throws InterruptedException {
@@ -86,9 +84,7 @@ public abstract class ResqLinearOpMode extends LinearOpMode {
     moosalot.driveTrain.tankDrive(0, 0);
   }
 
-
   public void driveBackwardAtSpeedForEncoderCounts(double speed, int encoderCounts) throws InterruptedException {
-
     int target = moosalot.driveTrain.leftDrive.getCurrentPosition() - encoderCounts;
     double straighten = 1.01;
     moosalot.driveTrain.tankDrive(-speed, -speed * straighten);
@@ -96,7 +92,6 @@ public abstract class ResqLinearOpMode extends LinearOpMode {
       moosalot.driveTrain.tankDrive(-speed, -speed * straighten);
       waitOneFullHardwareCycle();
     }
-
   }
 
 
